@@ -1,0 +1,40 @@
+.bg-portal {
+    min-height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url('/img/acuerdos-relevantes.png');
+}
+
+.img-logo-size {
+    width: 8rem;
+    height: 3rem;
+}
+
+.img-size {
+    width: 20rem;
+    height: 20rem;
+}
+
+.img-size-lg {
+    width: 30rem;
+    height: 30rem;
+}
+
+
+.width-content {
+    width: 850px;
+}
+
+@media (max-width: 780px) { /* Media query para dispositivos con un ancho máximo de 780px */
+    .img-size-lg {
+        width: 20rem;
+        height: 20rem;
+    }
+
+    .width-content {
+        max-width: 362px; /* Asegura que la imagen no exceda el ancho del contenedor en dispositivos móviles */
+    }
+}
+
