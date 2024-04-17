@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\petitionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,6 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+
+Route::get('/editEmpleado', [PetitionController::class, 'index'])->name('update.index');

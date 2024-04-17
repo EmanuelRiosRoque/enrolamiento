@@ -1,19 +1,21 @@
 // Variables
 const nEmpleado = document.querySelector("#nEmpleado");
 const alerta = document.querySelector(".alerta");
-
+const bEmpleado = document.querySelector("#bEmpleado");
 // Listeners
 nEmpleado.addEventListener("input", validaNempleado);
+nEmpleado.addEventListener("blur", ocultarAlerta);
 
 // Funciones
 function validaNempleado() {
     const valor = this.value.trim(); // Obtenemos el valor del campo de entrada y eliminamos los espacios en blanco al inicio y al final
 
-    if (valor.length === 8) { // Verificamos si la longitud del valor es 8
-        // El valor tiene exactamente 8 caracteres
+    if (valor.length === 7) {
+        // Verificamos si la longitud del valor es 7
+        // El valor tiene exactamente 7 caracteres
         ocultarAlerta();
     } else {
-        // El valor no tiene 8 caracteres
+        // El valor no tiene 7 caracteres
         mostrarAlerta();
     }
 }
@@ -24,16 +26,6 @@ function mostrarAlerta() {
 
 function ocultarAlerta() {
     alerta.classList.add("hidden");
-}
-
-
-function handleKeyUp(event) {
-    const input = event.target;
-    const valor = input.value.trim();
-
-    if (valor.length > 7 && valor.charAt(6) === '-') {
-        input.value = valor.slice(0, 6) + valor.slice(7);
-    }
 }
 
 

@@ -42,6 +42,7 @@
         @stack('modals')
 
         @livewireScripts
+        @livewire('wire-elements-modal')
 
         @stack('js')
     </body>
