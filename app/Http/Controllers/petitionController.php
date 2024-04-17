@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\UpdateEmpleados;
 use Illuminate\Support\Facades\Http;
 
 class petitionController extends Controller
@@ -53,7 +54,29 @@ class petitionController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Busca un registro existente con el ID proporcionado
+        $empleado = UpdateEmpleados::firstOrNew(['nuM_EMPL' => $id]);
+
+        // Actualiza los campos con los valores de la solicitud
+        $empleado->fill([
+            'nombres' => $request->nombres,
+            'apellidop' => $request->apellidop,
+            'apellidom' => $request->apellidom,
+            'estatus' => $request->estatus,
+            'rfc' => $request->rfc,
+            'curp' => $request->curp,
+            'areA_ADSCRIPCION' => $request->areA_ADSCRIPCION,
+            'descripcioN_AREA_ADSCRIPCION' => $request->descripcioN_AREA_ADSCRIPCION,
+            'puesto' => $request->puesto,
+            'descripcioN_PUESTO' => $request->descripcioN_PUESTO,
+            'ubicacioN_AREA_TRABAJO' => $request->ubicacioN_AREA_TRABAJO,
+            'descripcioN_AREA_TRABAJO' => $request->descripcioN_AREA_TRABAJO,
+            'nivel' => $request->nivel,
+            'plaza' => $request->plaza,
+        ]);
+
+        // Guarda el registro en la base de datos
+        $empleado->save();
     }
 
     /**

@@ -30,3 +30,4 @@ Route::middleware([
 
 
 Route::get('/editEmpleado', [PetitionController::class, 'index'])->name('update.index');
+Route::post('/editEmpleado/{id}', [PetitionController::class, 'update'])->name('update.update');
