@@ -62,7 +62,7 @@ class petitionController extends Controller
             'nombres' => $request->nombres,
             'apellidop' => $request->apellidop,
             'apellidom' => $request->apellidom,
-            'estatus' => $request->estatus,
+            'estatus' => "Activo",
             'rfc' => $request->rfc,
             'curp' => $request->curp,
             'areA_ADSCRIPCION' => $request->areA_ADSCRIPCION,
@@ -77,6 +77,8 @@ class petitionController extends Controller
 
         // Guarda el registro en la base de datos
         $empleado->save();
+
+        return redirect()->route('empleados.index')->with('success', 'Empleado actualizado correctamente');
     }
 
     /**

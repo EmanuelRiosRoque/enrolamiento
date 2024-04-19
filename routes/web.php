@@ -1,7 +1,11 @@
 <?php
 
+use App\Http\Controllers\empleados;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
+use PhpOffice\PhpWord\TemplateProcessor;
 use App\Http\Controllers\petitionController;
+use App\Http\Controllers\empleadosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,3 +35,12 @@ Route::middleware([
 
 Route::get('/editEmpleado', [PetitionController::class, 'index'])->name('update.index');
 Route::post('/editEmpleado/{id}', [PetitionController::class, 'update'])->name('update.update');
+
+
+
+Route::get('/showEmpleados', [empleadosController::class, 'index'])->name('empleados.index');
+
+
+
+Route::get('/download/{numeroEmpleado}', [empleadosController::class, 'downloadDocumento'])->name('download.documento');
+Route::get('/download-pdf',[PDFController::class, 'downloadPDF'])->name('download.pdf');

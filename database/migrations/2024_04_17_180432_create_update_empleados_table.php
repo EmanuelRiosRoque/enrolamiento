@@ -12,21 +12,22 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('update_empleados', function (Blueprint $table) {
-            $table->integer('nuM_EMPL');
-            $table->string('nombres');
-            $table->string('apellidop');
-            $table->string('apellidom');
-            $table->string('estatus');
-            $table->string('rfc');
-            $table->string('curp');
-            $table->string('areA_ADSCRIPCION');
-            $table->string('descripcioN_AREA_ADSCRIPCION');
-            $table->integer('puesto');
-            $table->string('descripcioN_PUESTO');
-            $table->integer('ubicacioN_AREA_TRABAJO');
-            $table->string('descripcioN_AREA_TRABAJO');
-            $table->integer('nivel');
-            $table->integer('plaza');
+            $table->id();
+            $table->string('nuM_EMPL')->nullable();
+            $table->string('nombres')->nullable();
+            $table->string('apellidop')->nullable();
+            $table->string('apellidom')->nullable();
+            $table->string('estatus')->nullable();
+            $table->string('rfc')->nullable();
+            $table->string('curp')->nullable();
+            $table->string('areA_ADSCRIPCION')->nullable();
+            $table->string('descripcioN_AREA_ADSCRIPCION')->nullable();
+            $table->string('puesto')->nullable();
+            $table->string('descripcioN_PUESTO')->nullable();
+            $table->string('ubicacioN_AREA_TRABAJO')->nullable();
+            $table->string('descripcioN_AREA_TRABAJO')->nullable();
+            $table->string('nivel')->nullable();
+            $table->string('plaza')->nullable();
         });
     }
 

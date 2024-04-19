@@ -6,18 +6,25 @@
         </div>
         <x-alert />
 
-        <button type="submit" class="w-full justify-center inline-flex items-center px-4 py-2 bg-teal-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-teal-700 focus:bg-teal-700 active:bg-teal-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+        <button type="submit" class="w-full justify-center inline-flex items-center px-4 py-2 bg-teal-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-teal-700 focus:bg-teal-700 active:bg-teal-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" wire:loading.attr="disabled" wire:click="showLoader">
             {{ __('Buscar Empleado') }}   <i class="fa-solid fa-magnifying-glass text-white ml-2"></i>
         </button>
     </form>
 
-    @if ($responseData)
-    <a href="{{ route('update.index', ['data' => json_encode($responseData)]) }}" class="w-full justify-center inline-flex items-center px-4 py-2 bg-teal-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-teal-700 focus:bg-teal-700 active:bg-teal-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
-        Editar Empleado
-    </a>
+    <div id="loader" class="flex justify-center mt-10 hidden" wire:loading.class.remove="hidden">
+        <x-loaderComponent />
+    </div>
 
-    @include('busqueda.show', ['empleado' => $responseData['empleado']])
+    @if ($responseData)
+        <div wire:loading.remove.delay="3000">
+            <a href="{{ route('update.index', ['data' => json_encode($responseData)]) }}" class="w-full justify-center inline-flex items-center px-4 py-2 bg-teal-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-teal-700 focus:bg-teal-700 active:bg-teal-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">
+                Editar Empleado
+            </a>
+
+            @include('busqueda.show', ['empleado' => $responseData['empleado']])
+        </div>
     @endif
+
 </div>
 
 

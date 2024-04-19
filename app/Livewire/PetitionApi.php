@@ -9,10 +9,17 @@ class PetitionApi extends Component
 {
     public $nEmpleado;
     public $responseData;
+    public $showLoader = false;
 
     public function fetchData()
     {
-        // Verifica que se haya proporcionado un número de empleado
+
+        $this->showLoader();
+
+        // Simula una solicitud de datos con un retraso de 5 segundos
+        sleep(3);
+
+
         if (!$this->nEmpleado) {
             return;
         }
@@ -25,24 +32,24 @@ class PetitionApi extends Component
         if ($response->ok()) {
             // Decodifica el contenido JSON de la respuesta y asigna los datos a $responseData
             $this->responseData = $response->json();
+            $this->hideLoader();
 
         } else {
             // Si la solicitud no fue exitosa, puedes manejar el error aquí
             $this->responseData = [];
+            $this->hideLoader();
         }
     }
-    public $modalAbierto = false;
-
-    // Método para abrir el modal
-    public function abrirModal()
+    public function showLoader()
     {
-        $this->modalAbierto = true;
+        // Mostrar el loader
+        $this->showLoader = true;
     }
 
-    // Método para cerrar el modal
-    public function cerrarModal()
+    public function hideLoader()
     {
-        $this->modalAbierto = false;
+        // Ocultar el loader
+        $this->showLoader = false;
     }
 
     public function render()
