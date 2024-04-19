@@ -41,3 +41,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 });
+
+
+// Modal popup
+document.addEventListener('DOMContentLoaded', function () {
+    const modalButton = document.querySelector('[data-modal-toggle="popup-modal"]');
+    const modal = document.getElementById('popup-modal');
+
+    modalButton.addEventListener('click', function () {
+        modal.classList.remove('hidden');
+        modal.focus(); // Enfocar el modal para acceder con teclado
+    });
+
+    // Cerrar el modal al hacer clic en el botón de cerrar
+    const closeButton = modal.querySelector('[data-modal-hide="popup-modal"]');
+    closeButton.addEventListener('click', function () {
+        modal.classList.add('hidden');
+    });
+
+    // Cerrar el modal al hacer clic fuera de él
+    window.addEventListener('click', function (event) {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+        }
+    });
+});

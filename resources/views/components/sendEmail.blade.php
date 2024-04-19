@@ -1,3 +1,4 @@
+
 <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen flex flex-col">
     <!-- Fondo semitransparente -->
     <div class="fixed top-0 right-0 left-0 bottom-0 bg-black opacity-50"></div>
@@ -19,7 +20,7 @@
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5">
-                <form class="space-y-4" method="POST" action="{{route('empleados.email', ['nEmpleado' => $empleado->nuM_EMPL])}}" enctype="multipart/form-data">
+                <form class="space-y-4" method="POST" action="{{route('empleados.email', ['nEmpleado' => $empleado->nuM_EMPL])}}" enctype="multipart/form-data" id="myForm">
                     @csrf
                     <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 hidden" role="alert" id="alerta-bouth">
                         <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
@@ -54,3 +55,12 @@
         </div>
     </div>
 </div>
+
+<div id="loader" class="fixed top-0 left-0 w-full h-full flex justify-center items-center bg-black bg-opacity-75 z-50 hidden">
+    <x-loaderComponent />
+</div>
+
+@push('js')
+    <script src="{{asset('js/loaderEmail.js')}}"></script>
+@endpush
+

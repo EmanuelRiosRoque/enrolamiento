@@ -5,14 +5,15 @@ namespace App\Http\Controllers;
 use Mpdf\Mpdf;
 use Dompdf\Dompdf;
 use Dompdf\Options;
+use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use App\Models\UpdateEmpleados;
-use App\Models\User;
 use PhpOffice\PhpWord\Settings;
 use PhpOffice\PhpWord\IOFactory;
 use App\Notifications\SendFormat;
 use Illuminate\Broadcasting\Channel;
+use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Illuminate\Support\Facades\Notification;
 
@@ -130,6 +131,7 @@ class empleadosController extends Controller
                     Notification::route('mail', $request->email)
                         ->notify(new SendFormat($apiLink, $nombreCompleto));
 
+
                     // Mensaje de éxito
                     return back()->withSuccess('Documento enviado correctamente.');
                 } catch (\Exception $e) {
@@ -191,8 +193,15 @@ class empleadosController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($nEmpleado)
     {
-        //
+        // Encuentra el empleado por su número de empleado
+        $empleado = UpdateEmpleados::where('nuM_EMPL', $nEmpleado)->firstOrFail();
+
+        // Elimina el empleado
+        $empleado->delete();
+
+        // Redirige con un mensaje de éxito
+        return redirect()->route('empleados.index')->with('success', 'Empleado eliminado correctamente.');
     }
 }

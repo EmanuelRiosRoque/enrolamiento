@@ -30,81 +30,99 @@
                     </div>
 
                     <div class="mt-5">
-                        @foreach ($empleados as $empleado)
                         <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
-                            <table class="w-full text-sm text-left rtl:text-right text-gray-500">
-                                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
-                                    <tr>
-                                        <th scope="col" class="px-6 py-3">
-                                            N° Empleado
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Nombre Completo
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            RFC
-                                        </th>
-                                        {{-- <th scope="col" class="px-6 py-3">
-                                            CURP
-                                        </th> --}}
-                                        <th scope="col" class="px-6 py-3">
-                                            Puesto
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Plaza
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Generar PDF
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Enviar
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr class="bg-white hover:bg-gray-50   ">
-                                        <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
-                                            {{$empleado->nuM_EMPL}}
-                                        </th>
-                                        <td class="px-6 py-4">
-                                            {{$empleado->nombres}} {{$empleado->apellidop}} {{$empleado->apellidom}}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{$empleado->rfc}}
-                                        </td>
-                                        {{-- <td class="px-6 py-4">
-                                            {{$empleado->curp}}
-                                        </td> --}}
-                                        <td class="px-6 py-4">
-                                            {{$empleado->puesto}}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            {{$empleado->plaza}}
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <a  href="{{route('download.documento', ["numeroEmpleado" => $empleado->nuM_EMPL])}}" class="bg-teal-500 hover:bg-teal-600 text-teal-900 font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer">
-                                                <i class="fa-solid fa-file-pdf mr-1"></i>
-                                                <span>Descargar</span>
-                                            </a>
-                                        </td>
-                                        <td class="px-6 py-4">
-                                            <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-blue-500 hover:bg-blue-600 text-blue-900 font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer" type="button">
-                                                <i class="fa-solid fa-envelope mr-1"></i>
-                                                <span>Enviar correo</span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            @if ($empleados->isNotEmpty())
+                                <table class="w-full text-sm text-left rtl:text-right text-gray-500">
+                                    <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                                        <tr>
+                                            <th scope="col" class="px-6 py-3">
+                                                N° Empleado
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Nombre Completo
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                RFC
+                                            </th>
+                                            {{-- <th scope="col" class="px-6 py-3">
+                                                CURP
+                                            </th> --}}
+                                            {{-- <th scope="col" class="px-6 py-3">
+                                                Puesto
+                                            </th> --}}
+                                            <th scope="col" class="px-6 py-3">
+                                                Plaza
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Generar PDF
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                Enviar
+                                            </th>
+                                            <th scope="col" class="px-6 py-3">
+                                                ¿ Eliminar ?
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                      @foreach ($empleados as $empleado)
+                                        <tr class="bg-white hover:bg-gray-50   ">
+                                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                                {{$empleado->nuM_EMPL}}
+                                            </th>
+                                            <td class="px-6 py-4">
+                                                {{$empleado->nombres}} {{$empleado->apellidop}} {{$empleado->apellidom}}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                {{$empleado->rfc}}
+                                            </td>
+                                            {{-- <td class="px-6 py-4">
+                                                {{$empleado->curp}}
+                                            </td> --}}
+                                            {{-- <td class="px-6 py-4">
+                                                {{$empleado->puesto}}
+                                            </td> --}}
+                                            <td class="px-6 py-4">
+                                                {{$empleado->plaza}}
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <a  href="{{route('download.documento', ["numeroEmpleado" => $empleado->nuM_EMPL])}}" class="bg-teal-500 hover:bg-teal-600 text-teal-900 font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer">
+                                                    <i class="fa-solid fa-file-pdf mr-1"></i>
+                                                    <span>Descargar</span>
+                                                </a>
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-blue-500 hover:bg-blue-600 text-blue-900 font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer" type="button">
+                                                    <i class="fa-solid fa-envelope mr-1"></i>
+                                                    <span>Enviar correo</span>
+                                                </button>
+                                            </td>
+                                            <td class="px-6 py-4">
+                                                <button data-modal-target="popup-modal" data-modal-toggle="popup-modal" class="bg-red-500 hover:bg-red-600 text-red-900 font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer" type="button">
+                                                    <i class="fa-solid fa-envelope mr-1"></i>
+                                                    <span>Eliminar</span>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                     @endforeach
+                                    </tbody>
+                                </table>
+                                @else
+                                <h1 class="text-center">No hay empleados modificados</h1>
+                            @endif
                         </div>
-                        @endforeach
                     </div>
-                     <x-sendEmail :empleado="$empleado"/>
-
+                    @if ($empleados->isNotEmpty())
+                        <x-sendEmail :empleado="$empleado" />
+                        <x-deletePopUp :empleado="$empleado" />
+                    @endif
                 </x-container>
             </div>
         </div>
     </div>
+
+
+
 
 
     @push('js')
