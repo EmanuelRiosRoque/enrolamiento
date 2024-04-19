@@ -19,7 +19,7 @@
             </div>
             <!-- Modal body -->
             <div class="p-4 md:p-5">
-                <form class="space-y-4" method="POST" action="{{route('empleados.email')}}" enctype="multipart/form-data">
+                <form class="space-y-4" method="POST" action="{{route('empleados.email', ['nEmpleado' => $empleado->nuM_EMPL])}}" enctype="multipart/form-data">
                     @csrf
                     <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 hidden" role="alert" id="alerta-bouth">
                         <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">

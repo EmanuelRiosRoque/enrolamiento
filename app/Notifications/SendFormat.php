@@ -11,12 +11,15 @@ class SendFormat extends Notification
 {
     use Queueable;
 
+    public $urlImg;
+    public $nombreEmpleado;
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($urlImg, $nombreEmpleado)
     {
-        //
+        $this->urlImg = $urlImg;
+        $this->nombreEmpleado = $nombreEmpleado;
     }
 
     /**
@@ -35,9 +38,12 @@ class SendFormat extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         return (new MailMessage)
-                    ->line('The introduction to the notification.')
-                    ->action('Notification Action', url('/'))
-                    ->line('Thank you for using our application!');
+            ->subject('Formato Empleado')
+            ->greeting('Hola ' . $this->nombreEmpleado) // Concatenar el nombre del empleado al saludo
+            ->line('Recibiste este correo electrónico porque se generó un nuevo formato de empleado.')
+            ->action('Ver Documento', url($this->urlImg))
+            ->line('Si no solicitaste un formato nuevo, puedes ignorar este correo.')
+            ->salutation('Gracias, [TSJ]');
     }
 
     /**

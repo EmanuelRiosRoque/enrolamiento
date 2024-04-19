@@ -99,7 +99,7 @@
                         </div>
                         @endforeach
                     </div>
-                     <x-sendEmail />
+                     <x-sendEmail :empleado="$empleado"/>
 
                 </x-container>
             </div>
