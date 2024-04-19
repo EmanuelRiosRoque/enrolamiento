@@ -1,4 +1,5 @@
 const dropzone = document.getElementById('dropzone-label');
+const inputFile = document.getElementById('dropzone-file');
 
 // Función para mostrar el nombre del archivo
 function mostrarNombreArchivo(file) {
@@ -24,6 +25,9 @@ dropzone.addEventListener('drop', function(event) {
 
     // Mostrar el nombre del archivo
     mostrarNombreArchivo(file);
+
+    // Asignar el archivo al input type file
+    inputFile.files = event.dataTransfer.files;
 });
 
 // Escuchar el evento de cambio de archivo al seleccionar de forma tradicional
