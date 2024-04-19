@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
+            {{ __('Modificados') }}
         </h2>
     </x-slot>
 
@@ -44,9 +44,9 @@
                                         <th scope="col" class="px-6 py-3">
                                             RFC
                                         </th>
-                                        <th scope="col" class="px-6 py-3">
+                                        {{-- <th scope="col" class="px-6 py-3">
                                             CURP
-                                        </th>
+                                        </th> --}}
                                         <th scope="col" class="px-6 py-3">
                                             Puesto
                                         </th>
@@ -54,7 +54,10 @@
                                             Plaza
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Generar Word
+                                            Generar PDF
+                                        </th>
+                                        <th scope="col" class="px-6 py-3">
+                                            Enviar
                                         </th>
                                     </tr>
                                 </thead>
@@ -69,9 +72,9 @@
                                         <td class="px-6 py-4">
                                             {{$empleado->rfc}}
                                         </td>
-                                        <td class="px-6 py-4">
+                                        {{-- <td class="px-6 py-4">
                                             {{$empleado->curp}}
-                                        </td>
+                                        </td> --}}
                                         <td class="px-6 py-4">
                                             {{$empleado->puesto}}
                                         </td>
@@ -79,10 +82,16 @@
                                             {{$empleado->plaza}}
                                         </td>
                                         <td class="px-6 py-4">
-                                            <a  href="{{route('download.documento', ["numeroEmpleado" => $empleado->nuM_EMPL])}}" class="bg-blue-300 hover:bg-blue-400 text-blue-800 font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer">
-                                                <i class="fa-solid fa-file-word mr-2"></i>
-                                                <span>Download</span>
+                                            <a  href="{{route('download.documento', ["numeroEmpleado" => $empleado->nuM_EMPL])}}" class="bg-teal-500 hover:bg-teal-600 text-teal-900 font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer">
+                                                <i class="fa-solid fa-file-pdf mr-1"></i>
+                                                <span>Descargar</span>
                                             </a>
+                                        </td>
+                                        <td class="px-6 py-4">
+                                            <button data-modal-target="authentication-modal" data-modal-toggle="authentication-modal" class="bg-blue-500 hover:bg-blue-600 text-blue-900 font-bold py-2 px-4 rounded inline-flex items-center cursor-pointer" type="button">
+                                                <i class="fa-solid fa-envelope mr-1"></i>
+                                                <span>Enviar correo</span>
+                                            </button>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -90,10 +99,18 @@
                         </div>
                         @endforeach
                     </div>
-
+                     <x-sendEmail />
 
                 </x-container>
             </div>
         </div>
     </div>
+
+
+    @push('js')
+        <script src="{{asset('js/modal.js')}}"></script>
+        <script src="{{asset('js/dropZone.js')}}"></script>
+        <script src="{{asset('js/validationEmail.js')}}"></script>
+    @endpush
+
 </x-app-layout>

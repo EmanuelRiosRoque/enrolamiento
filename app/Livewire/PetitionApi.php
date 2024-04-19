@@ -10,15 +10,14 @@ class PetitionApi extends Component
     public $nEmpleado;
     public $responseData;
     public $showLoader = false;
+    public $error = null; // Agrega una propiedad para almacenar el mensaje de error
 
     public function fetchData()
     {
-
         $this->showLoader();
 
-        // Simula una solicitud de datos con un retraso de 5 segundos
+        // Simula una solicitud de datos con un retraso de 3 segundos
         sleep(3);
-
 
         if (!$this->nEmpleado) {
             return;
@@ -28,18 +27,18 @@ class PetitionApi extends Component
             'NumEmpleado' => $this->nEmpleado
         ]);
 
-        // Verifica si la solicitud fue exitosa
         if ($response->ok()) {
-            // Decodifica el contenido JSON de la respuesta y asigna los datos a $responseData
             $this->responseData = $response->json();
             $this->hideLoader();
-
+            $this->error = null; // Resetea el mensaje de error en caso de éxito
         } else {
-            // Si la solicitud no fue exitosa, puedes manejar el error aquí
             $this->responseData = [];
             $this->hideLoader();
+            $this->error = 'al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
         }
     }
+
+
     public function showLoader()
     {
         // Mostrar el loader

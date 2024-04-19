@@ -39,6 +39,7 @@ Route::post('/editEmpleado/{id}', [PetitionController::class, 'update'])->name('
 
 
 Route::get('/showEmpleados', [empleadosController::class, 'index'])->name('empleados.index');
+Route::post('/sendEmail', [empleadosController::class, 'sendFormat'])->name('empleados.email');
 
 
 

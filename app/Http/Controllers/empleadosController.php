@@ -7,8 +7,12 @@ use Dompdf\Dompdf;
 use Dompdf\Options;
 use Illuminate\Http\Request;
 use App\Models\UpdateEmpleados;
+use App\Notifications\SendFormat;
 use PhpOffice\PhpWord\IOFactory;
 use PhpOffice\PhpWord\TemplateProcessor;
+use PhpOffice\PhpWord\Settings;
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Support\Facades\Notification;
 
 class empleadosController extends Controller
 {
@@ -28,53 +32,62 @@ class empleadosController extends Controller
      * Download document.
      */
 
-     public function downloadDocumento($numeroEmpleado)
-{
-    try {
-        // Buscar el empleado en la base de datos basado en el número de empleado proporcionado
-        $empleado = UpdateEmpleados::where('nuM_EMPL', $numeroEmpleado)->first();
+    public function downloadDocumento($numeroEmpleado)
+    {
+         try {
+             // Definir la ruta de la biblioteca mPDF
+             Settings::setPdfRendererPath(base_path('vendor/mpdf/mpdf'));
+             Settings::setPdfRendererName('MPDF');
 
-        // Verificar si se encontró el empleado
-        if (!$empleado) {
-            return back()->withError('No se encontró ningún empleado con el número proporcionado');
-        }
+             // Buscar el empleado en la base de datos basado en el número de empleado proporcionado
+             $empleado = UpdateEmpleados::where('nuM_EMPL', $numeroEmpleado)->first();
 
-        // Crear un nuevo TemplateProcessor con el documento de Word
-        $template = new TemplateProcessor('template/enrolamiento 2.docx');
+             // Verificar si se encontró el empleado
+             if (!$empleado) {
+                 return back()->withError('No se encontró ningún empleado con el número proporcionado');
+             }
 
-        // Asignar los valores del empleado al documento
-        $template->setValue('NUM_EMPLEADO', $empleado->nuM_EMPL);
-        $template->setValue('NOMBRE', $empleado->nombres);
-        $template->setValue('AP_PAT', $empleado->apellidop);
-        $template->setValue('AP_MAT', $empleado->apellidom);
-        $template->setValue('RFC', $empleado->rfc);
-        $template->setValue('ID_POS', $empleado->plaza);
-        // Asigna los demás valores según las variables en tu documento de Word
+             // Crear un nuevo TemplateProcessor con el documento de Word
+             $template = new TemplateProcessor('template/enrolamiento 2.docx');
 
-        // Guardar el documento modificado en una carpeta temporal dentro de public
-        $documentoGenerado = public_path('temp/documentoGenerado.docx');
-        $template->saveAs($documentoGenerado);
+             // Asignar los valores del empleado al documento
+             $template->setValue('NUM_EMPLEADO', $empleado->nuM_EMPL);
+             $template->setValue('NOMBRE', $empleado->nombres);
+             $template->setValue('AP_PAT', $empleado->apellidop);
+             $template->setValue('AP_MAT', $empleado->apellidom);
+             $template->setValue('RFC', $empleado->rfc);
+             $template->setValue('ID_POS', $empleado->plaza);
+             // Asigna los demás valores según las variables en tu documento de Word
 
-        // Convertir el documento DOCX a PDF usando DomPDF
-        $domPdfPath = base_path('vendor/dompdf/dompdf');
-        \PhpOffice\PhpWord\Settings::setPdfRendererPath($domPdfPath);
-        \PhpOffice\PhpWord\Settings::setPdfRendererName('DomPDF');
+             // Guardar el documento modificado en una carpeta temporal dentro de public
+             $documentoGenerado = public_path('temp/documentoGenerado.docx');
+             $template->saveAs($documentoGenerado);
 
-        $phpWord = IOFactory::load($documentoGenerado);
-        $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
-        $pdfFilename = time() . '.pdf';
-        $pdfPath = public_path('temp/' . $pdfFilename);
-        $pdfWriter->save($pdfPath);
+             // Convertir el documento DOCX a PDF usando mPDF
+             $phpWord = IOFactory::load($documentoGenerado);
+             $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
+             $pdfFilename = time() . '.pdf';
+             $pdfPath = public_path('temp/' . $pdfFilename);
 
-        // Descargar el PDF generado
-        return response()->download($pdfPath, 'documentoGenerado.pdf');
+             // Guardar el PDF con los márgenes configurados
+             $pdfWriter->save($pdfPath);
 
-    } catch (\Exception $e) {
-        // Si ocurre un error, regresar a la página anterior con el código de error
-        return back()->withError($e->getMessage());
+             // Descargar el PDF generado
+             return response()->download($pdfPath, 'documentoGenerado.pdf');
+         } catch (\Exception $e) {
+             // Si ocurre un error, regresar a la página anterior con el código de error
+             dd($e->getMessage());
+         }
     }
-}
 
+
+    public function sendFormat(Request $request)
+    {
+
+        Notification::routes(['mail' => [$request->email]])->notify(new SendFormat());
+
+        dd($request->all());
+    }
 
 
     /**
