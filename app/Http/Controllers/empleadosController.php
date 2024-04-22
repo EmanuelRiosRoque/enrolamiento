@@ -22,14 +22,19 @@ class empleadosController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        $empleados = UpdateEmpleados::all();
-        // dd($empleados);
-        return view('empleados.show', [
-            'empleados' => $empleados
-        ]);
-    }
+    public function index(Request $request)
+{
+    $term = $request->input('term');
+
+    // Realiza la búsqueda de empleados por número de empleado
+    $empleados = UpdateEmpleados::where('nuM_EMPL', 'LIKE', "%$term%")
+                                 ->orderByDesc('id')
+                                 ->paginate(30);
+
+    return view('empleados.show', [
+        'empleados' => $empleados,
+    ]);
+}
 
     /**
      * Download document.

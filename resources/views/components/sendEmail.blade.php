@@ -45,7 +45,7 @@
                                     <p class="mb-2 text-sm text-gray-500"><span class="font-semibold">Click para subir documento</span> o arrastra documento</p>
                                     <p class="text-xs text-gray-500">PDF (*SOLO PDF*)</p>
                                 </div>
-                                <input id="dropzone-file" type="file" name="file" class="hidden" />
+                                <input id="dropzone-file" type="file" name="file" class="hidden" accept=".pdf" />
                             </label>
                         </div>
                     </div>
