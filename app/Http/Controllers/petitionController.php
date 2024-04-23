@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\UpdateEmpleados;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
 
 class petitionController extends Controller
@@ -56,7 +57,7 @@ class petitionController extends Controller
     {
         // Busca un registro existente con el ID proporcionado
         $empleado = UpdateEmpleados::firstOrNew(['nuM_EMPL' => $id]);
-
+        $userId = Auth::id();
         // Actualiza los campos con los valores de la solicitud
         $empleado->fill([
             'nombres' => $request->nombres,
@@ -73,6 +74,7 @@ class petitionController extends Controller
             'descripcioN_AREA_TRABAJO' => $request->descripcioN_AREA_TRABAJO,
             'nivel' => $request->nivel,
             'plaza' => $request->plaza,
+            'fk_usrCreated' => $userId,
         ]);
 
         // Guarda el registro en la base de datos

@@ -3,22 +3,23 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
-use Illuminate\Notifications\Notification;
 
 class SendFormat extends Notification
 {
     use Queueable;
 
-    public $urlImg;
+    public $archAdjunto ;
     public $nombreEmpleado;
     /**
      * Create a new notification instance.
      */
-    public function __construct($urlImg, $nombreEmpleado)
+    public function __construct($archAdjunto, $nombreEmpleado)
     {
-        $this->urlImg = $urlImg;
+        $this->archAdjunto = $archAdjunto;
         $this->nombreEmpleado = $nombreEmpleado;
     }
 
@@ -39,9 +40,13 @@ class SendFormat extends Notification
     {
         return (new MailMessage)
             ->subject('Formato Empleado')
-            ->greeting('Hola ' . $this->nombreEmpleado) // Concatenar el nombre del empleado al saludo
+            ->greeting('Hola ' . $this->nombreEmpleado)
             ->line('Recibiste este correo electrónico porque se generó un nuevo formato de empleado.')
-            ->action('Ver Documento', url($this->urlImg))
+            // Adjuntar el archivo al correo electrónico
+            ->attach($this->archAdjunto, [
+                'as' => 'documento.pdf',
+                'mime' => 'application/pdf',
+            ])
             ->line('Si no solicitaste un formato nuevo, puedes ignorar este correo.')
             ->salutation('Gracias, [TSJ]');
     }

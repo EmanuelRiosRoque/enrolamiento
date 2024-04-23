@@ -25,7 +25,14 @@ class UpdateEmpleados extends Model
         'descripcioN_AREA_TRABAJO',
         'nivel',
         'plaza',
+        'fk_usrCreated',
     ];
 
-    public $timestamps = false;
+
+    public $timestamps = true;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'fk_usrCreated');
+    }
 }

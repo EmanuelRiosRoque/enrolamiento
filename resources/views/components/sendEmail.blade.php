@@ -60,6 +60,7 @@
     <x-loaderComponent />
 </div>
 
+
 @push('js')
     <script src="{{asset('js/loaderEmail.js')}}"></script>
 @endpush

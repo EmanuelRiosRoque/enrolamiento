@@ -8,12 +8,12 @@ use Dompdf\Options;
 use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use App\Models\EmailRegistro;
 use App\Models\UpdateEmpleados;
 use PhpOffice\PhpWord\Settings;
 use PhpOffice\PhpWord\IOFactory;
+
 use App\Notifications\SendFormat;
-use Illuminate\Broadcasting\Channel;
-use Illuminate\Support\Facades\Session;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Illuminate\Support\Facades\Notification;
 
@@ -23,30 +23,152 @@ class empleadosController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-{
-    $term = $request->input('term');
+    {
+        $term = $request->input('term');
 
-    // Realiza la búsqueda de empleados por número de empleado
-    $empleados = UpdateEmpleados::where('nuM_EMPL', 'LIKE', "%$term%")
-                                 ->orderByDesc('id')
-                                 ->paginate(30);
+        // Realiza la búsqueda de empleados por número de empleado
+        $empleados = UpdateEmpleados::where('nuM_EMPL', 'LIKE', "%$term%")
+        ->orderByDesc('created_at')
+        ->paginate(30);
 
-    return view('empleados.show', [
-        'empleados' => $empleados,
-    ]);
-}
+        $correos = EmailRegistro::all();
+
+        return view('empleados.show', [
+            'empleados' => $empleados,
+            'correos' => $correos,
+        ]);
+    }
 
     /**
-     * Download document.
+     * Download document pdf.
      */
 
-    public function downloadDocumento($numeroEmpleado)
+     public function downloadDocumento(Request $request, $numeroEmpleado)
+     {
+         try {
+             // Obtener la imagen de la firma desde la solicitud
+             $firmaBase64 = $request->input('firma');
+
+             // Guardar la imagen de la firma en una ubicación temporal
+             $firmaPath = public_path('temp/firma.png');
+             file_put_contents($firmaPath, base64_decode($firmaBase64));
+
+             // Definir la ruta de la biblioteca mPDF
+             Settings::setPdfRendererPath(base_path('vendor/mpdf/mpdf'));
+             Settings::setPdfRendererName('MPDF');
+
+             // Buscar el empleado en la base de datos basado en el número de empleado proporcionado
+             $empleado = UpdateEmpleados::where('nuM_EMPL', $numeroEmpleado)->first();
+
+             // Verificar si se encontró el empleado
+             if (!$empleado) {
+                 return back()->withError('No se encontró ningún empleado con el número proporcionado');
+             }
+
+             // Crear un nuevo TemplateProcessor con el documento de Word
+             $template = new TemplateProcessor('template/formatoENROLAMIENTO.docx');
+
+             // Asignar los valores del empleado al documento
+             $template->setValue('NUM_EMPLEADO', $empleado->nuM_EMPL);
+             $template->setValue('NOMBRE', $empleado->nombres);
+             $template->setValue('AP_PAT', $empleado->apellidop);
+             $template->setValue('AP_MAT', $empleado->apellidom);
+             $template->setValue('RFC', $empleado->rfc);
+             $template->setValue('ID_POS', $empleado->plaza);
+             // Asigna los demás valores según las variables en tu documento de Word
+
+             // Insertar la imagen de la firma en el documento
+             $template->setImageValue('FIRMA', $firmaPath);
+
+             // Guardar el documento modificado en una carpeta temporal dentro de public
+             $documentoGenerado = public_path('temp/documentoGenerado.docx');
+             $template->saveAs($documentoGenerado);
+
+             // Convertir el documento DOCX a PDF usando mPDF
+             $phpWord = IOFactory::load($documentoGenerado);
+             foreach ($phpWord->getSections() as $section) {
+                 $section->setMarginLeft(0);
+                 $section->setMarginRight(0);
+                 $section->setMarginTop(0);
+                 $section->setMarginBottom(0);
+             }
+
+             // Guardar el PDF con los márgenes configurados
+             $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
+             $pdfFilename = time() . '.pdf';
+             $pdfPath = public_path('temp/' . $pdfFilename);
+             $pdfWriter->save($pdfPath);
+
+             // Descargar el PDF generado
+             return response()->download($pdfPath, 'documentoGenerado.pdf');
+         } catch (\Exception $e) {
+             // Si ocurre un error, regresar a la página anterior con el código de error
+             dd($e->getMessage());
+         }
+     }
+
+    // public function downloadDocumento($numeroEmpleado)
+    // {
+    //     try {
+    //         // Definir la ruta de la biblioteca mPDF
+    //         Settings::setPdfRendererPath(base_path('vendor/mpdf/mpdf'));
+    //         Settings::setPdfRendererName('MPDF');
+
+    //         // Buscar el empleado en la base de datos basado en el número de empleado proporcionado
+    //         $empleado = UpdateEmpleados::where('nuM_EMPL', $numeroEmpleado)->first();
+
+    //         // Verificar si se encontró el empleado
+    //         if (!$empleado) {
+    //             return back()->withError('No se encontró ningún empleado con el número proporcionado');
+    //         }
+
+    //         // Crear un nuevo TemplateProcessor con el documento de Word
+    //         $template = new TemplateProcessor('template/formatoENROLAMIENTO.docx');
+
+    //         // Asignar los valores del empleado al documento
+    //         $template->setValue('NUM_EMPLEADO', $empleado->nuM_EMPL);
+    //         $template->setValue('NOMBRE', $empleado->nombres);
+    //         $template->setValue('AP_PAT', $empleado->apellidop);
+    //         $template->setValue('AP_MAT', $empleado->apellidom);
+    //         $template->setValue('RFC', $empleado->rfc);
+    //         $template->setValue('ID_POS', $empleado->plaza);
+    //         // Asigna los demás valores según las variables en tu documento de Word
+
+    //         // Guardar el documento modificado en una carpeta temporal dentro de public
+    //         $documentoGenerado = public_path('temp/documentoGenerado.docx');
+    //         $template->saveAs($documentoGenerado);
+
+    //         // Convertir el documento DOCX a PDF usando mPDF
+    //         $phpWord = IOFactory::load($documentoGenerado);
+    //         foreach ($phpWord->getSections() as $section) {
+    //             $section->setMarginLeft(0);
+    //             $section->setMarginRight(0);
+    //             $section->setMarginTop(0);
+    //             $section->setMarginBottom(0);
+    //         }
+
+    //         // Guardar el PDF con los márgenes configurados
+    //         $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
+    //         $pdfFilename = time() . '.pdf';
+    //         $pdfPath = public_path('temp/' . $pdfFilename);
+    //         $pdfWriter->save($pdfPath);
+
+    //         // Descargar el PDF generado
+    //         return response()->download($pdfPath, 'documentoGenerado.pdf');
+    //     } catch (\Exception $e) {
+    //         // Si ocurre un error, regresar a la página anterior con el código de error
+    //         dd($e->getMessage());
+    //     }
+    // }
+
+
+    /**
+     * Download document docx.
+     */
+
+    public function downloadDocumentoDocx($numeroEmpleado)
     {
         try {
-            // Definir la ruta de la biblioteca mPDF
-            Settings::setPdfRendererPath(base_path('vendor/mpdf/mpdf'));
-            Settings::setPdfRendererName('MPDF');
-
             // Buscar el empleado en la base de datos basado en el número de empleado proporcionado
             $empleado = UpdateEmpleados::where('nuM_EMPL', $numeroEmpleado)->first();
 
@@ -56,7 +178,7 @@ class empleadosController extends Controller
             }
 
             // Crear un nuevo TemplateProcessor con el documento de Word
-            $template = new TemplateProcessor('template/enrolamiento 2.docx');
+            $template = new TemplateProcessor('template/formatoENROLAMIENTO.docx');
 
             // Asignar los valores del empleado al documento
             $template->setValue('NUM_EMPLEADO', $empleado->nuM_EMPL);
@@ -71,24 +193,17 @@ class empleadosController extends Controller
             $documentoGenerado = public_path('temp/documentoGenerado.docx');
             $template->saveAs($documentoGenerado);
 
-            // Convertir el documento DOCX a PDF usando mPDF
-            $phpWord = IOFactory::load($documentoGenerado);
-            $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
-            $pdfFilename = time() . '.pdf';
-            $pdfPath = public_path('temp/' . $pdfFilename);
-
-            // Guardar el PDF con los márgenes configurados
-            $pdfWriter->save($pdfPath);
-
-            // Descargar el PDF generado
-            return response()->download($pdfPath, 'documentoGenerado.pdf');
+            // Descargar el documento de Word
+            return response()->download($documentoGenerado, 'documentoGenerado.docx');
         } catch (\Exception $e) {
             // Si ocurre un error, regresar a la página anterior con el código de error
             dd($e->getMessage());
         }
     }
 
-
+    /**
+     * Send document.
+     */
     public function sendFormat(Request $request, $nEmpleado)
     {
 
@@ -98,6 +213,13 @@ class empleadosController extends Controller
         $apellidoPaterno = $user->apellidop;
         $apellidoMaterno = $user->apellidom;
         $nombreCompleto = $nombre . ' ' . $apellidoPaterno . ' ' . $apellidoMaterno;
+        $idEmpleado = $user->id;
+
+        EmailRegistro::create([
+            'id_empleado' => $idEmpleado,
+            'emailResptor' => $request->input('email'), // Debes obtener el email del receptor del request
+            'fk_userEmisor' => auth()->id(), // Obtener el ID del usuario emisor autenticado
+        ]);
 
         $links = [];
 
@@ -114,8 +236,8 @@ class empleadosController extends Controller
 
                     // Construye el objeto de información para enviar a la API
                     $infoApi = [
-                        "metadata"   => ["id_datoadicional" => 9, "area_tsjcdmx" => "DDMS"],
-                        "filename"   => $documento->getClientOriginalName(),
+                        "metadata" => ["id_datoadicional" => 9, "area_tsjcdmx" => "DDMS"],
+                        "filename" => $documento->getClientOriginalName(),
                         "doc_base64" => $base64,
                     ];
 
@@ -134,7 +256,7 @@ class empleadosController extends Controller
 
                     // Pasa el enlace como dato a la notificación
                     Notification::route('mail', $request->email)
-                        ->notify(new SendFormat($apiLink, $nombreCompleto));
+                        ->notify(new SendFormat($documento, $nombreCompleto));
 
 
                     // Mensaje de éxito
@@ -152,7 +274,6 @@ class empleadosController extends Controller
             dd('No se ha seleccionado ningún archivo.');
         }
     }
-
 
 
     /**

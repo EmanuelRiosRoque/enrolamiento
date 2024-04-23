@@ -66,3 +66,32 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const registroButton = document.querySelector('[data-modal-target="authentication-modal"]');
+    const modal = document.getElementById('timeline-modal');
+
+    registroButton.addEventListener('click', function() {
+        modal.classList.remove('hidden');
+        modal.setAttribute('aria-hidden', 'false');
+        modal.setAttribute('tabindex', '0');
+        modal.focus();
+    });
+
+    modal.addEventListener('click', function(event) {
+        if (event.target === modal) {
+            modal.classList.add('hidden');
+            modal.setAttribute('aria-hidden', 'true');
+            modal.setAttribute('tabindex', '-1');
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && !modal.classList.contains('hidden')) {
+            modal.classList.add('hidden');
+            modal.setAttribute('aria-hidden', 'true');
+            modal.setAttribute('tabindex', '-1');
+        }
+    });
+});

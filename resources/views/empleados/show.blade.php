@@ -65,7 +65,7 @@
                                                     Puesto
                                                 </th> --}}
                                                 <th scope="col" class="px-6 py-3">
-                                                    Plaza
+                                                    Registro
                                                 </th>
                                                 <th scope="col" class="px-6 py-3">
                                                     Generar PDF
@@ -97,12 +97,15 @@
                                                     {{$empleado->puesto}}
                                                 </td> --}}
                                                 <td class="px-6 py-4">
-                                                    {{$empleado->plaza}}
+                                                    <button data-modal-target="timeline-modal" data-modal-toggle="timeline-modal" class="inline-flex items-center px-4 py-2 font-bold text-amber-900 bg-amber-500 rounded cursor-pointer hover:bg-amber-600" type="button">
+                                                        <i class="mr-1 fa-solid fa-circle-info"></i>
+                                                        <span>Registro</span>
+                                                    </button>
                                                 </td>
                                                 <td class="px-6 py-4">
                                                     <a  href="{{route('download.documento', ["numeroEmpleado" => $empleado->nuM_EMPL])}}" class="inline-flex items-center px-4 py-2 font-bold text-teal-900 bg-teal-500 rounded cursor-pointer hover:bg-teal-600">
                                                         <i class="mr-1 fa-solid fa-file-pdf"></i>
-                                                        <span>Descargar</span>
+                                                        <span>PDF</span>
                                                     </a>
                                                 </td>
                                                 <td class="px-6 py-4">
@@ -135,10 +138,13 @@
                             </div>
                         </div>
                     </div>
-                    @if ($empleados->isNotEmpty())
-                        <x-sendEmail :empleado="$empleado" />
-                        <x-deletePopUp :empleado="$empleado" />
-                    @endif
+                    @foreach ($empleados as $empleado)
+                        @if ($empleados->isNotEmpty())
+                            <x-registro :empleado="$empleado" :correo="$correos" />
+                            <x-sendEmail :empleado="$empleado"  />
+                            <x-deletePopUp :empleado="$empleado" />
+                        @endif
+                    @endforeach
                     <div class="mt-3">
                         {{ $empleados->links() }}
                     </div>
