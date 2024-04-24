@@ -19,8 +19,14 @@ class petitionController extends Controller
     {
         $inmuebles = AreasInmuebles::all();
         $data = json_decode($request->query('data'), true);
+        
+        // Verificar si $data['empleado'] está presente
+        if (isset($data['empleado'])) {
+            $data = $data['empleado'];
+        }
+
         return view('busqueda.update', [
-            'data' => $data['empleado'],
+            'data' => $data,
             'inmuebles' => $inmuebles
         ]);
     }
@@ -31,6 +37,14 @@ class petitionController extends Controller
     public function create()
     {
         //
+    }
+
+    /**
+     * Show the form for creating a new inmueble.
+     */
+    public function createInmueble(Request $request)
+    {
+        dd($request->new_area); exit;
     }
 
     /**

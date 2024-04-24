@@ -27,39 +27,39 @@
                 <ol class="relative border-gray-200 border-s ">
                     <li class="mb-10 ms-6">
                         <span
-                            class="absolute flex items-center justify-center w-6 h-6 bg-teal-100 rounded-full -start-3 ring-8 ring-white ">
-                            <i class="text-teal-800 fa-regular fa-calendar-days"></i>
+                            class="absolute flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 -start-3 ring-8 ring-white ">
+                            <i class="text-amber-800 fa-regular fa-calendar-days"></i>
                         </span>
                         <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 ">Registro Creado: {{$empleado->created_at->diffForHumans()}}</h3>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 ">{{$empleado->created_at->isoFormat('LL')}}</time>
+                        <time class="block mb-2 text-sm font-normal leading-none text-amber-800 ">{{$empleado->created_at->isoFormat('LL')}}</time>
                         <p class="mb-4 text-base font-normal text-gray-500 ">Registro Creado hace referencia a la fecha de actualizacion del formato</p>
                     </li>
                     <li class="mb-10 ms-6">
                         <span
-                            class="absolute flex items-center justify-center w-6 h-6 bg-teal-100 rounded-full -start-3 ring-8 ring-white ">
-                            <i class="text-teal-800 fa-solid fa-keyboard"></i>
+                            class="absolute flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 -start-3 ring-8 ring-white ">
+                            <i class="text-amber-800 fa-solid fa-keyboard"></i>
                         </span>
                         <h3 class="mb-1 text-lg font-semibold text-gray-900 ">Elaborado</h3>
-                        <p class="mb-4 text-base font-normal text-gray-500 ">Este elemento fue elaborado y modificado por: {{$empleado->user->name}}</p>
+                        <p class="mb-4 text-base font-normal text-gray-500 ">Este elemento fue elaborado y modificado por: <span class="text-amber-800">{{$empleado->user->name}}</span></p>
                     </li>
                     <li class="mb-10 ms-6">
                         <span
-                            class="absolute flex items-center justify-center w-6 h-6 bg-teal-100 rounded-full -start-3 ring-8 ring-white ">
-                            <i class="text-teal-800 fa-solid fa-envelope-open"></i>
+                            class="absolute flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 -start-3 ring-8 ring-white ">
+                            <i class="text-amber-800 fa-solid fa-envelope-open"></i>
                         </span>
                         <h3 class="mb-1 text-lg font-semibold text-gray-900 ">Correo(s) receptor</h3>
                         @if ($correos->isNotEmpty())
                         <ul class="list-disc">
                             @foreach ($correos as $correo)
-                                <li class="mb-4 text-base font-normal text-gray-800">{{$correo->emailResptor}}
-                                    <br>  <span class="text-sm font-bold text-gray-500">{{$correo->created_at->diffForHumans()}}</span>
-                                    <br>  <span class="text-sm font-bold text-gray-400">{{$correo->created_at->isoFormat('LL')}}</span>
+                                <li class="mb-4 text-base font-normal text-amber-800">{{$correo->emailResptor}}
+                                    <br>  <span class="text-sm font-bold text-amber-500">{{$correo->created_at->diffForHumans()}}</span>
+                                    <br>  <span class="text-sm font-bold text-amber-400">{{$correo->created_at->isoFormat('LL')}}</span>
                                 </li>
 
                             @endforeach
                         </ul>
                         @else
-                            <p class="mb-4 text-base font-normal text-teal-700">Aun no hay correo(s) receptores</p>
+                            <p class="mb-4 text-base font-normal text-amber-700">Aun no hay correo(s) receptores</p>
                         @endif
                     </li>
                 </ol>

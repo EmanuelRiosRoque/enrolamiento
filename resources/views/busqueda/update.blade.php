@@ -9,6 +9,8 @@
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
                 <x-container>
+                    <a  href="{{route('dashboard')}}" class="cursor-pointer text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" id="enviar-btn"><i class="text-white fa-solid fa-backward-step"></i> Regresar</a>
+
                     <div class="p-6">
                         <form method="POST" action="{{ route('update.update', ['id' => $data['nuM_EMPL']]) }}" class="max-w-md mx-auto">
                             @csrf
@@ -42,19 +44,22 @@
                                 <input type="text" name="curp" id="floating_repeat_CURP" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required value="{{$data['curp']}}" />
                                 <label for="floating_repeat_CURP" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">CURP</label>
                             </div>
-                            <div class="grid md:grid-cols-2 md:gap-6">
+                            <div class="grid md:grid-cols-3 md:gap-6">
                                 <div class="relative z-0 w-full mb-5 group">
                                     <input type="text" name="areA_ADSCRIPCION" id="floating_area" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required disabled />
                                     <label for="floating_area" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Area</label>
                                 </div>
                                 <div class="relative z-0 w-full mb-5 group">
                                     <select name="descripcioN_AREA_ADSCRIPCION" id="floating_areaAdscrito" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" required>
-                                        <option value="" disabled selected>Selecciona un inmueble</option>
+                                        <option value="" disabled selected>Inmueble</option>
                                         @foreach($inmuebles as $inmueble)
                                             <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
                                         @endforeach
                                     </select>
                                     <label for="floating_areaAdscrito" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Area adscrito</label>
+                                </div>
+                                <div>
+                                    <a href="{{route('inmuebles.index', ['data' => json_encode($data)])}}" id="btn-newInmueble" class="cursor-pointer text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">+ Inmueble</a>
                                 </div>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
@@ -77,7 +82,7 @@
                                     <label for="floating_nivel" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Nivel</label>
                                 </div>
                             </div>
-                            <button type="submit" class="w-full cursor-pointer text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" id="enviar-btn">Generar Cambios</button>
+                            <button type="submit" class="w-full cursor-pointer text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center" id="enviar-btn">Guardar Cambios</button>
                         </form>
                     </div>
                 </x-container>
@@ -90,5 +95,7 @@
         var inmuebles = {!! json_encode($inmuebles) !!};
     </script>
         <script src="{{asset('js/aregloAsociativo.js')}}"></script>
+
+
     @endpush
 </x-app-layout>

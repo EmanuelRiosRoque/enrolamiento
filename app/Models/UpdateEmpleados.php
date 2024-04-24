@@ -35,4 +35,9 @@ class UpdateEmpleados extends Model
     {
         return $this->belongsTo(User::class, 'fk_usrCreated');
     }
+
+    public function emailRegistros()
+    {
+        return $this->hasMany(EmailRegistro::class, 'id_empleado');
+    }
 }

@@ -12,4 +12,7 @@ class AreasInmuebles extends Model
         'id_locacion',
         'desc_locacion'
     ];
+
+    public $timestamps = false;
+
 }

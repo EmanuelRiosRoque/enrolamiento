@@ -320,14 +320,17 @@ class empleadosController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy($nEmpleado)
-    {
-        // Encuentra el empleado por su número de empleado
-        $empleado = UpdateEmpleados::where('nuM_EMPL', $nEmpleado)->firstOrFail();
+{
+    // Encuentra el empleado por su número de empleado
+    $empleado = UpdateEmpleados::where('nuM_EMPL', $nEmpleado)->firstOrFail();
 
-        // Elimina el empleado
-        $empleado->delete();
+    // Elimina los registros relacionados en la tabla email_registros
+    $empleado->emailRegistros()->delete();
 
-        // Redirige con un mensaje de éxito
-        return redirect()->route('empleados.index')->with('success', 'Empleado eliminado correctamente.');
-    }
+    // Elimina el empleado
+    $empleado->delete();
+
+    // Redirige con un mensaje de éxito
+    return redirect()->route('empleados.index')->with('success', 'Empleado eliminado correctamente.');
+}
 }

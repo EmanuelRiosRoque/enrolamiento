@@ -65,16 +65,16 @@
                                                     Puesto
                                                 </th> --}}
                                                 <th scope="col" class="px-6 py-3">
-                                                    Registro
+                                                    Informacion de Captura
                                                 </th>
                                                 <th scope="col" class="px-6 py-3">
                                                     Generar PDF
                                                 </th>
                                                 <th scope="col" class="px-6 py-3">
-                                                    Enviar
+                                                    Enviar Correo
                                                 </th>
                                                 <th scope="col" class="px-6 py-3">
-                                                    ¿ Eliminar ?
+                                                    Accion
                                                 </th>
                                             </tr>
                                         </thead>
@@ -99,7 +99,7 @@
                                                 <td class="px-6 py-4">
                                                     <button data-modal-target="timeline-modal" data-modal-toggle="timeline-modal" class="inline-flex items-center px-4 py-2 font-bold rounded cursor-pointer text-amber-900 bg-amber-500 hover:bg-amber-600" type="button">
                                                         <i class="mr-1 fa-solid fa-circle-info"></i>
-                                                        <span>Registro</span>
+                                                        <span>Informacion</span>
                                                     </button>
                                                 </td>
                                                 <td class="px-6 py-4">

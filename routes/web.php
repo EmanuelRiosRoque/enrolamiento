@@ -6,6 +6,7 @@ use App\Http\Controllers\PDFController;
 use PhpOffice\PhpWord\TemplateProcessor;
 use App\Http\Controllers\petitionController;
 use App\Http\Controllers\empleadosController;
+use App\Http\Controllers\InmueblesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,10 @@ Route::middleware([
 
 Route::get('/editEmpleado', [PetitionController::class, 'index'])->name('update.index');
 Route::post('/editEmpleado/{id}', [PetitionController::class, 'update'])->name('update.update');
+
+
+Route::get('/Inmueble', [InmueblesController::class, 'index'])->name('inmuebles.index');
+Route::post('/Inmueble/create', [InmueblesController::class, 'create'])->name('inmuebles.create');
 
 
 

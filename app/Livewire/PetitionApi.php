@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\UpdateEmpleados;
 use Illuminate\Support\Facades\Http;
 
 class PetitionApi extends Component
@@ -14,6 +15,15 @@ class PetitionApi extends Component
 
     public function fetchData()
     {
+        // Verifica si el número de empleado ya existe en la tabla update_empleado
+        $empleadoExistente = UpdateEmpleados::where('nuM_EMPL', $this->nEmpleado)->exists();
+
+        if ($empleadoExistente) {
+            $this->error = 'Este empleado ya fue dado de alta.';
+            return;
+        }
+
+        // Continúa con la lógica de la solicitud API solo si el empleado no existe en la base de datos local
         $this->showLoader();
 
         // Simula una solicitud de datos con un retraso de 3 segundos
@@ -34,7 +44,7 @@ class PetitionApi extends Component
         } else {
             $this->responseData = [];
             $this->hideLoader();
-            $this->error = 'al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
+            $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
         }
     }
 
