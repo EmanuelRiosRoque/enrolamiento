@@ -5,16 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class AreasImuebles extends Model
+class AreasInmuebles extends Model
 {
     use HasFactory;
-
     public $fillable = [
-        'id_location',
-        'emailResptor',
-        'desc_location',
+        'id_locacion',
+        'desc_locacion'
     ];
-
-    public $timestamps = true;
-
 }

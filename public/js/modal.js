@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    const registroButton = document.querySelector('[data-modal-target="authentication-modal"]');
+    const registroButton = document.querySelector('[data-modal-target="timeline-modal"]');
     const modal = document.getElementById('timeline-modal');
 
     registroButton.addEventListener('click', function() {

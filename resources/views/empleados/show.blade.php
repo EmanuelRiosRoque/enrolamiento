@@ -30,12 +30,12 @@
                     <form action="{{ route('empleados.index') }}" method="GET" class="max-w-md mx-auto">
                         <label for="default-search" class="mb-2 text-sm font-medium text-gray-900 sr-only">Buscar</label>
                         <div class="relative">
-                            <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                            <div class="absolute inset-y-0 flex items-center pointer-events-none start-0 ps-3">
                                 <svg class="w-4 h-4 text-gray-50" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
                                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
                                 </svg>
                             </div>
-                            <input type="search" id="searchInput" name="term" class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-teal-500 focus:border-teal-500" placeholder="Buscar empleado por número"/>
+                            <input type="search" id="searchInput" name="term" class="block w-full p-4 text-sm text-gray-900 border border-gray-300 rounded-lg ps-10 bg-gray-50 focus:ring-teal-500 focus:border-teal-500" placeholder="Buscar empleado por número"/>
                             <button type="submit" class="text-white absolute end-14 bottom-2.5 bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2"><i class="fa-solid fa-magnifying-glass"></i></button>
                             <button type="submit" class="text-white absolute end-1.5 bottom-2.5 bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-4 py-2">Todo</button>
                         </div>
@@ -97,7 +97,7 @@
                                                     {{$empleado->puesto}}
                                                 </td> --}}
                                                 <td class="px-6 py-4">
-                                                    <button data-modal-target="timeline-modal" data-modal-toggle="timeline-modal" class="inline-flex items-center px-4 py-2 font-bold text-amber-900 bg-amber-500 rounded cursor-pointer hover:bg-amber-600" type="button">
+                                                    <button data-modal-target="timeline-modal" data-modal-toggle="timeline-modal" class="inline-flex items-center px-4 py-2 font-bold rounded cursor-pointer text-amber-900 bg-amber-500 hover:bg-amber-600" type="button">
                                                         <i class="mr-1 fa-solid fa-circle-info"></i>
                                                         <span>Registro</span>
                                                     </button>
@@ -140,7 +140,7 @@
                     </div>
                     @foreach ($empleados as $empleado)
                         @if ($empleados->isNotEmpty())
-                            <x-registro :empleado="$empleado" :correo="$correos" />
+                            <x-registro :empleado="$empleado" :correos="$correos" />
                             <x-sendEmail :empleado="$empleado"  />
                             <x-deletePopUp :empleado="$empleado" />
                         @endif

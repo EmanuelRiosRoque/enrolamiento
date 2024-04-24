@@ -1,13 +1,13 @@
 <div id="timeline-modal" tabindex="-1" aria-hidden="true"
-    class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-screen flex flex-col">
+    class="fixed top-0 left-0 right-0 z-50 flex flex-col items-center justify-center hidden w-full h-screen overflow-x-hidden overflow-y-auto md:inset-0">
     <!-- Fondo semitransparente -->
-    <div class="fixed top-0 right-0 left-0 bottom-0 bg-black opacity-50"></div>
+    <div class="fixed top-0 bottom-0 left-0 right-0 bg-black opacity-50"></div>
     <!-- Contenido del modal -->
-    <div class="relative p-4 w-full max-w-md max-h-full">
+    <div class="relative w-full max-w-md max-h-full p-4">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow">
             <!-- Modal header -->
-            <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t ">
+            <div class="flex items-center justify-between p-4 border-b rounded-t md:p-5 ">
                 <h3 class="text-xl font-semibold text-gray-900">
                     Informacion De Captura
                 </h3>
@@ -23,16 +23,12 @@
                 </button>
             </div>
             <!-- Modal body -->
-            <div class="p-4 md:p-5 px-5">
-                <ol class="relative border-s border-gray-200 ">
+            <div class="p-4 px-5 md:p-5">
+                <ol class="relative border-gray-200 border-s ">
                     <li class="mb-10 ms-6">
                         <span
-                            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white ">
-                            <svg class="w-2.5 h-2.5 text-blue-800 " aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                            </svg>
+                            class="absolute flex items-center justify-center w-6 h-6 bg-teal-100 rounded-full -start-3 ring-8 ring-white ">
+                            <i class="text-teal-800 fa-regular fa-calendar-days"></i>
                         </span>
                         <h3 class="flex items-center mb-1 text-lg font-semibold text-gray-900 ">Registro Creado: {{$empleado->created_at->diffForHumans()}}</h3>
                         <time class="block mb-2 text-sm font-normal leading-none text-gray-400 ">{{$empleado->created_at->isoFormat('LL')}}</time>
@@ -40,47 +36,35 @@
                     </li>
                     <li class="mb-10 ms-6">
                         <span
-                            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white ">
-                            <svg class="w-2.5 h-2.5 text-blue-800 " aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                            </svg>
+                            class="absolute flex items-center justify-center w-6 h-6 bg-teal-100 rounded-full -start-3 ring-8 ring-white ">
+                            <i class="text-teal-800 fa-solid fa-keyboard"></i>
                         </span>
-                        <h3 class="mb-1 text-lg font-semibold text-gray-900 ">Elaborado por: {{$empleado->user->name}}</h3>
+                        <h3 class="mb-1 text-lg font-semibold text-gray-900 ">Elaborado</h3>
+                        <p class="mb-4 text-base font-normal text-gray-500 ">Este elemento fue elaborado y modificado por: {{$empleado->user->name}}</p>
                     </li>
                     <li class="mb-10 ms-6">
                         <span
-                            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white ">
-                            <svg class="w-2.5 h-2.5 text-blue-800 " aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                            </svg>
+                            class="absolute flex items-center justify-center w-6 h-6 bg-teal-100 rounded-full -start-3 ring-8 ring-white ">
+                            <i class="text-teal-800 fa-solid fa-envelope-open"></i>
                         </span>
-                        <h3 class="mb-1 text-lg font-semibold text-gray-900 ">Al correo: {{$empleado->user->name}}</h3>
+                        <h3 class="mb-1 text-lg font-semibold text-gray-900 ">Correo(s) receptor</h3>
+                        @if ($correos->isNotEmpty())
+                        <ul class="list-disc">
+                            @foreach ($correos as $correo)
+                                <li class="mb-4 text-base font-normal text-gray-800">{{$correo->emailResptor}}
+                                    <br>  <span class="text-sm font-bold text-gray-500">{{$correo->created_at->diffForHumans()}}</span>
+                                    <br>  <span class="text-sm font-bold text-gray-400">{{$correo->created_at->isoFormat('LL')}}</span>
+                                </li>
+
+                            @endforeach
+                        </ul>
+                        @else
+                            <p class="mb-4 text-base font-normal text-teal-700">Aun no hay correo(s) receptores</p>
+                        @endif
                     </li>
-                    {{-- <li class="ms-6">
-                        <span
-                            class="absolute flex items-center justify-center w-6 h-6 bg-blue-100 rounded-full -start-3 ring-8 ring-white ">
-                            <svg class="w-2.5 h-2.5 text-blue-800 " aria-hidden="true"
-                                xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
-                                <path
-                                    d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
-                            </svg>
-                        </span>
-                        <h3 class="mb-1 text-lg font-semibold text-gray-900 ">Flowbite Library v1.2.2</h3>
-                        <time class="block mb-2 text-sm font-normal leading-none text-gray-400 ">Released on December
-                            2nd, 2021</time>
-                        <p class="text-base font-normal text-gray-500 ">Get started with dozens of web components and
-                            interactive elements built on top of Tailwind CSS.</p>
-                    </li> --}}
                 </ol>
             </div>
         </div>
     </div>
 </div>
 
-@push('js')
-<script src="{{asset('js/loaderEmail.js')}}"></script>
-@endpush

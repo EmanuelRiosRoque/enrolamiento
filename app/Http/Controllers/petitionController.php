@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\AreasImuebles;
+use App\Models\EmailRegistro;
+use App\Models\AreasInmuebles;
 use App\Models\UpdateEmpleados;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
@@ -14,8 +17,12 @@ class petitionController extends Controller
      */
     public function index(Request $request)
     {
+        $inmuebles = AreasInmuebles::all();
         $data = json_decode($request->query('data'), true);
-        return view('busqueda.update', ['data' => $data['empleado']]);
+        return view('busqueda.update', [
+            'data' => $data['empleado'],
+            'inmuebles' => $inmuebles
+        ]);
     }
 
     /**
@@ -57,6 +64,9 @@ class petitionController extends Controller
     {
         // Busca un registro existente con el ID proporcionado
         $empleado = UpdateEmpleados::firstOrNew(['nuM_EMPL' => $id]);
+        // $request->all();
+        // dd($request);
+        // exit;
         $userId = Auth::id();
         // Actualiza los campos con los valores de la solicitud
         $empleado->fill([
@@ -76,6 +86,7 @@ class petitionController extends Controller
             'plaza' => $request->plaza,
             'fk_usrCreated' => $userId,
         ]);
+
 
         // Guarda el registro en la base de datos
         $empleado->save();
