@@ -33,6 +33,7 @@ class empleadosController extends Controller
 
         $correos = EmailRegistro::all();
 
+        // dd($empleados);
         return view('empleados.show', [
             'empleados' => $empleados,
             'correos' => $correos,
