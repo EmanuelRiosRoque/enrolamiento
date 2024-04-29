@@ -1,348 +1,386 @@
-id_locacion,desc_locacion
-0CF-0000,5 de Febrero
-8CF-0000,5 de Febrero
-8CF-0001,5 de Febrero 1er piso
-0CF-0001,5 de Febrero 1er piso
-0CF-00PB,5 de Febrero Planta Baja
-8CF-00PB,5 de Febrero Planta Baja
-0MA-0000,5 de Mayo y 2 de Abril
-8MA-0000,5 de Mayo y 2 de Abril
-8MA-00PB,5 de Mayo y 2 de Abril Planta Baja
-0MA-00PB,5 de Mayo y 2 de Abril Planta Baja
-0AO-0000,Alvaro Obregon
-8AO-0000,Alvaro Obregon
-8AO-00PB,Alvaro Obregon Planta Baja
-0AO-00PB,Alvaro Obregon Planta Baja
-0AR-0000,Arteaga 8-A
-0BO-0000,Bretaña
-8BO-0000,Bretaña
-8BO-0001,Bretaña 1er Piso
-0BO-0001,Bretaña 1er Piso
-0BO-00PB,Bretaña Planta Baja
-8BO-00PB,Bretaña Planta Baja
-8CS-0000,Carlos Santana
-0CS-0000,Carlos Santana
-0CS-0001,Carlos Santana 1er piso
-8CS-0001,Carlos Santana 1er piso
-8CS-0002,Carlos Santana 2do piso
-0CS-0002,Carlos Santana 2do piso
-0JA-0000,Centro de Justicia Alternativa
-0JA-0005,Centro de Justicia Alternativa
-0JA-0001,Centro de Justicia Alternativa 1er piso
-0JA-0002,Centro de Justicia Alternativa 2do piso
-0JA-0003,Centro de Justicia Alternativa 3er piso
-0JA-0004,Centro de Justicia Alternativa 4to piso
-0JA-00PB,Centro de Justicia Alternativa Planta Baja
-0ST-0000,Cereso Santa Martha Acatitla
-0ST-00PB,Cereso Santa Martha Acatitla Planta Baja
-0CO-0000,Constitucion
-8CO-0000,Constitucion
-8CO-0003,Constitucion 3er piso
-0CO-0003,Constitucion 3er piso
-0CO-00PB,Constitucion Planta Baja
-8CO-00PB,Constitucion Planta Baja
-0CT-0000,Cuitlahuac
-8CT-0000,Cuitlahuac
-8CT-0001,Cuitlahuac 1er piso
-0CT-0001,Cuitlahuac 1er piso
-0CT-0002,Cuitlahuac 2do piso
-8CT-0002,Cuitlahuac 2do piso
-8CT-0003,Cuitlahuac 3er piso
-0CT-0003,Cuitlahuac 3er piso
-0CB-00PB,Dr. Caludio Bernard Planta Baja
-0CB-00ST,Dr. Caludio Bernard Sotano
-0CB-0000,Dr. Claudio Bernard 
-0CB-0001,Dr. Claudio Bernard 1er piso
-0CB-0002,Dr. Claudio Bernard 2do piso
-0CB-0003,Dr. Claudio Bernard 3er piso
-0CB-0004,Dr. Claudio Bernard 4to piso
-0CB-0005,Dr. Claudio Bernard 5to piso
-0CB-0006,Dr. Claudio Bernard 6to piso
-0CB-0007,Dr. Claudio Bernard 7mo piso
-0CB-0008,Dr. Claudio Bernard 8vo piso
-0LV-0000,Dr. Lavista
-0LV-0001,Dr. Lavista primer piso
-0LV-0002,Dr. Lavista segundo piso
-0LC-0000,Dr. Liceaga
-0LC-0001,Dr. Liceaga 1er piso
-0LC-0002,Dr. Liceaga 2do piso
-0LC-0003,Dr. Liceaga 3er piso
-0LC-00PB,Dr. Liceaga Planta Baja
-0LC-00ST,Dr. Liceaga Sotano
-0NA-0000,Dr. Navarro
-0NA-1000,Dr. Navarro 100
-0NA-2000,Dr. Navarro 115
-0NA-3000,Dr. Navarro 202
-0EN-0000,Edificio Nezahualcoyotl
-0EN-N001,Edificio Nezahualcoyotl Piso 1 Ala Norte
-0EN-S001,Edificio Nezahualcoyotl Piso 1 Ala Sur
-0EN-N002,Edificio Nezahualcoyotl Piso 2 Ala Norte
-0EN-S002,Edificio Nezahualcoyotl Piso 2 Ala Sur
-0EN-00PB,Edificio Nezahualcoyotl Planta Baja
-0EZ-0000,Ermita Iztapalapa
-8EZ-0000,Ermita Iztapalapa
-8EZ-0001,Ermita Iztapalapa 1er piso
-0EZ-0001,Ermita Iztapalapa 1er piso
-0EZ-0002,Ermita Iztapalapa 2do piso
-8EZ-0002,Ermita Iztapalapa 2do piso
-8EZ-00PB,Ermita Iztapalapa Planta Baja
-0EZ-00PB,Ermita Iztapalapa Planta Baja
-0FC-0000,Felipe Carrillo
-8FC-0000,Felipe Carrillo
-8FC-0001,Felipe Carrillo 1er piso
-0FC-0001,Felipe Carrillo 1er piso
-0FC-00PB,Felipe Carrillo Planta Baja
-8FC-00PB,Felipe Carrillo Planta Baja
-8FG-0000,Francisco Goytia
-0FG-0000,Francisco Goytia
-0FG-00PB,Francisco Goytia Planta Baja
-8FG-00PB,Francisco Goytia Planta Baja
-8FS-0000,Fray Servando
-0FS-0000,Fray Servando
-0FS-0010,Fray Servando 10mo piso
-0FS-0001,Fray Servando 1er piso
-0FS-0002,Fray Servando 2do piso
-0FS-0003,Fray Servando 3er piso
-0FS-0004,Fray Servando 4to piso
-0FS-0005,Fray Servando 5to piso
-0FS-0006,Fray Servando 6to piso
-0FS-0007,Fray Servando 7mo piso
-0FS-0008,Fray Servando 8vo piso
-0FS-0009,Fray Servando 9no piso
-0FS-00PB,Fray Servando Planta Baja
-8FS-00PB,Fray Servando Planta Baja
-0FT-0000,Fray Servando Teresa de Mier 32
-0FT-0004,Fray Servando Teresa de Mier 32 Cuarto Piso
-0FT-0010,Fray Servando Teresa de Mier 32 Decimo Piso
-0FT-0012,Fray Servando Teresa de Mier 32 Duodecimo Piso
-0FT-0009,Fray Servando Teresa de Mier 32 Noveno Piso
-0FT-0008,Fray Servando Teresa de Mier 32 Octavo Piso
-0FT-00PB,Fray Servando Teresa de Mier 32 Planta baja
-0FT-0001,Fray Servando Teresa de Mier 32 Primer Piso
-0FT-0005,Fray Servando Teresa de Mier 32 Quinto Piso
-0FT-0002,Fray Servando Teresa de Mier 32 Segundo Piso
-0FT-0007,Fray Servando Teresa de Mier 32 Septimo Piso
-0FT-0006,Fray Servando Teresa de Mier 32 Sexto Piso
-0FT-0003,Fray Servando Teresa de Mier 32 Tercer Piso
-0FT-0011,Fray Servando Teresa de Mier 32 Undecimo Piso
-0FT-0013,Fray Servando Teresa de Mier.  Esq. Fco. del Paso y Troncoso
-0GL-0000,Guadalupe
-8GL-0000,Guadalupe
-8GL-0001,Guadalupe 1er piso
-0GL-0001,Guadalupe 1er piso
-0GL-00PB,Guadalupe Planta Baja
-8GL-00PB,Guadalupe Planta Baja
-8HG-0000,Hidalgo
-0HG-0000,Hidalgo
-0HG-00PB,Hidalgo Planta Baja
-8HG-00PB,Hidalgo Planta Baja
-9IC_0000,Isabel la Catolica
-9IC-A000,Isabel la Catolica
-9IC-B000,Isabel la Catolica
-9IC-B001,Isabel la Catolica 1er. Piso
-9IC-A001,Isabel la Catolica 1er. Piso
-9IC-A002,Isabel la Catolica 2do. Piso
-9IC-B002,Isabel la Catolica 2do. Piso
-9IC-B003,Isabel la Catolica 3er. Piso
-9IC-A003,Isabel la Catolica 3er. Piso
-9IC-A004,Isabel la Catolica 4to. Piso
-9IC-B004,Isabel la Catolica 4to. Piso
-9IC-B005,Isabel la Catolica 5to. Piso
-9IC-A005,Isabel la Catolica 5to. Piso
-9IC-A006,Isabel la Catolica 6to. Piso
-9IC-B006,Isabel la Catolica 6to. Piso
-9IC-B007,Isabel la Catolica 7o. Piso
-9IC-A007,Isabel la Catolica 7o. Piso
-9IC-A008,Isabel la Catolica 8o. Piso
-9IC-B008,Isabel la Catolica 8o. Piso
-9IC-B0PB,Isabel la Catolica Planta Baja
-9IC-A0PB,Isabel la Catolica Planta Baja
-0IM-0000,Islas Marias
-0IM-0001,Islas Marias
-0VG-0000,LA VIGA
-LIC-9999,Lugar de Trabajo Licencias
-8MT-0000,Matamoros
-0MT-0000,Matamoros 
-0MT-00PB,Matamoros Planta Baja
-8MT-00PB,Matamoros Planta Baja
-0AM-0000,México
-0AM-00PB,México
-0PR-0000,Niños Héroes
-0PR-0001,Niños Héroes 1er piso
-0PR-0002,Niños Héroes 2do piso
-0PR-00PB,Niños Héroes Planta Baja
-0PR-00ST,Niños Heroes Sotano
-0OM-0000,Obrero Mundial
-0OM-0001,Obrero Mundial 1er piso
-0OM-00PB,Obrero Mundial Planta Baja
-0OM-00ST,Obrero Mundial Sotano
-0OT-0000,Oriente
-8OT-0000,Oriente
-8OT-0001,Oriente 1er piso
-0OT-0001,Oriente 1er piso
-0OT-00PB,Oriente Planta Baja
-8OT-00PB,Oriente Planta Baja
-0AA-PC02,Pagaduria Central Cheques 02
-0AA-PC01,Pagaduria Central Efectivo 01
-0PM-0000,Pedro Martir
-8PM-0000,Pedro Martir
-8PM-0001,Pedro Martir 1er piso
-0PM-0001,Pedro Martir 1er piso
-6PJ-0000,Plaza Juarez 
-6PJ-0010,Plaza Juárez 10mo piso
-6PJ-0011,Plaza Juárez 11ro piso
-6PJ-0012,Plaza Juárez 12do piso
-6PJ-0013,Plaza Juárez 13ro piso
-6PJ-0014,Plaza Juárez 14to piso
-6PJ-0015,Plaza Juárez 15to piso
-6PJ-0016,Plaza Juárez 16to piso
-6PJ-0017,Plaza Juárez 17mo piso
-6PJ-0001,Plaza Juárez 1er piso
-6PJ-0002,Plaza Juárez 2do piso
-6PJ-0003,Plaza Juárez 3er piso
-6PJ-0004,Plaza Juárez 4to piso
-6PJ-0005,Plaza Juárez 5to piso
-6PJ-0006,Plaza Juárez 6to piso
-6PJ-0007,Plaza Juárez 7mo piso
-6PJ-0008,Plaza Juárez 8vo piso
-6PJ-0009,Plaza Juárez 9no piso
-6PJ-00PB,Plaza Juarez Planta Baja
-6PJ-00ST,Plaza Juarez Sotano
-ROOT,Raiz
-8RC-0000,Ramirez
-0RC-0000,Ramirez
-0RC-00PB,Ramirez Planta Baja
-8RC-00PB,Ramirez Planta Baja
-1RN-0000,Reclusorio Norte
-1RN-1000,Reclusorio Norte Edificio Antiguo
-1RN-1001,Reclusorio Norte Edificio Antiguo 1er piso
-1RN-1002,Reclusorio Norte Edificio Antiguo 2do piso
-1RN-10PB,Reclusorio Norte Edificio Antiguo Planta Baja
-1RN-10ST,Reclusorio Norte Edificio Antiguo Sotano
-1RN-2000,Reclusorio Norte Edificio Nuevo
-1RN-2001,Reclusorio Norte Edificio Nuevo 1er piso
-1RN-2002,Reclusorio Norte Edificio Nuevo 2do piso
-1RN-20PB,Reclusorio Norte Edificio Nuevo Planta Baja
-1RN-20ST,Reclusorio Norte Edificio Nuevo Sotano
-2RO-0000,Reclusorio Oriente
-2RO-10PB,Reclusorio Oriente Edificio Anriguo Planta Baja
-2RO-1000,Reclusorio Oriente Edificio Antiguo
-2RO-1001,Reclusorio Oriente Edificio Antiguo 1er piso
-2RO-1002,Reclusorio Oriente Edificio Antiguo 2do piso
-2RO-10ST,Reclusorio Oriente Edificio Antiguo Sotano
-2RO-2000,Reclusorio Oriente Edificio Nuevo
-2RO-2001,Reclusorio Oriente Edificio Nuevo 1er piso
-2RO-2002,Reclusorio Oriente Edificio Nuevo 2do piso
-2RO-20PB,Reclusorio Oriente Edificio Nuevo Planta Baja
-2RO-20ST,Reclusorio Oriente Edificio Nuevo Sotano
-3RS-0000,Reclusorio Sur
-3RS-1000,Reclusorio Sur Edificio Antiguo
-3RS-1001,Reclusorio Sur Edificio Antiguo 1er piso
-3RS-1002,Reclusorio Sur Edificio Antiguo 2do piso
-3RS-10PB,Reclusorio Sur Edificio Antiguo Planta Baja
-3RS-10ST,Reclusorio Sur Edificio Antiguo Sotano
-3RS-2000,Reclusorio Sur Edificio Nuevo
-3RS-2001,Reclusorio Sur Edificio Nuevo 1er piso
-3RS-2002,Reclusorio Sur Edificio Nuevo 2do piso
-3RS-20PB,Reclusorio Sur Edificio Nuevo Planta Baja
-3RS-20ST,Reclusorio Sur Edificio Nuevo Sotano
-8RV-0000,Revolucion
-0RV-0000,Revolucion
-0AR-0001,Revolución 1340
-0AR-00PB,Revolución 1340
-0RV-0001,Revolucion 1er piso
-8RV-0001,Revolucion 1er piso
-8RV-0002,Revolucion 2do piso
-0RV-0002,Revolucion 2do piso
-0RV-0003,Revolucion 3er piso
-8RV-0003,Revolucion 3er piso
-8RV-00PB,Revolucion Planta Baja
-0RV-00PB,Revolucion Planta Baja
-0RV-00ST,Revolucion Sotano
-8RV-00ST,Revolucion Sotano
-5RP-00ST,Rio de la Palta Sotano
-5RP-0000,Rio de la Plata
-5RP-0010,Rio de la Plata 10mo piso
-5RP-0011,Rio de la Plata 11ro piso
-5RP-0012,Rio de la Plata 12do piso
-5RP-0013,Rio de la Plata 13vo piso
-5RP-0014,Rio de la Plata 14to piso
-5RP-0015,Rio de la Plata 15to piso
-5RP-0001,Rio de la Plata 1er piso
-5RP-0002,Rio de la Plata 2do piso
-5RP-0003,Rio de la Plata 3er piso
-5RP-0004,Rio de la Plata 4to piso
-5RP-0005,Rio de la Plata 5to piso
-5RP-0006,Rio de la Plata 6to piso
-5RP-0007,Rio de la Plata 7mo piso
-5RP-0008,Rio de la Plata 8vo piso
-5RP-0009,Rio de la Plata 9no piso
-5RP-00PB,Rio de la Plata Planta Baja
-4RL-0000,Río Lerma
-4RL-0001,Río Lerma 1er piso
-4RL-0002,Río Lerma 2do piso
-4RL-0003,Río Lerma 3er piso
-4RL-0004,Río Lerma 4to piso
-4RL-0005,Río Lerma 5to piso
-4RL-0006,Río Lerma 6to piso
-4RL-0007,Río Lerma 7mo piso
-4RL-00PB,Río Lerma Planta Baja
-0SM-0000,Semefo
-0SM-0001,Semefo 1er piso
-0SM-0002,Semefo 2do piso
-0SM-0003,Semefo 3er piso
-0SM-00PB,Semefo Planta Baja
-0SM-00ST,Semefo Sotano
-4SL-0000,Sullivan
-4SL-0010,Sullivan 10mo piso
-4SL-0001,Sullivan 1er piso
-4SL-0002,Sullivan 2do piso
-4SL-0003,Sullivan 3er piso
-4SL-0004,Sullivan 4to piso
-4SL-0005,Sullivan 5to piso
-4SL-0006,Sullivan 6to piso
-4SL-0007,Sullivan 7mo piso
-4SL-0008,Sullivan 8vo piso
-4SL-0009,Sullivan 9no piso
-4SL-00PB,Sullivan Planta Baja
-4SL-00ST,Sullivan Sotano
-8AT-0000,Te
-0AT-0000,Te
-0AT-00PB,Te Planta Baja
-8AT-00PB,Te Planta Baja
-8TL-0000,Tlahuac
-0TL-0000,Tlahuac 
-0TL-0001,Tlahuac 1er piso
-8TL-0001,Tlahuac 1er piso
-8TL-00PB,Tlahuac Planta Baja
-0TL-00PB,Tlahuac Planta Baja
-0TN-0000,Torre Norte
-0TN-0010,Torre Norte 10mo piso
-0TN-0001,Torre Norte 1er piso
-0TN-0002,Torre Norte 2do piso
-0TN-0003,Torre Norte 3er piso
-0TN-0004,Torre Norte 4to piso
-0TN-0005,Torre Norte 5to piso
-0TN-0006,Torre Norte 6to piso
-0TN-0007,Torre Norte 7mo piso
-0TN-0008,Torre Norte 8vo piso
-0TN-0009,Torre Norte 9no piso
-0TN-00PB,Torre Norte Planta Baja
-0TN-00ST,Torre Norte Sotano
-0TS-0000,Torre Sur
-0TS-0010,Torre Sur 10mo piso
-0TS-0001,Torre Sur 1er piso
-0TS-0002,Torre Sur 2do piso
-0TS-0003,Torre Sur 3er piso
-0TS-0004,Torre Sur 4to piso
-0TS-0005,Torre Sur 5to piso
-0TS-0006,Torre Sur 6to piso
-0TS-0007,Torre Sur 7mo piso
-0TS-0008,Torre Sur 8vo piso
-0TS-0009,Torre Sur 9no piso
-0TS-00PB,Torre Sur Planta Baja
-0TS-00ST,Torre Sur Sotano
-8ZI-0000,Zompantitla
-0ZI-0000,Zompantitla
-0ZI-00PB,Zompantitla Planta Baja
-8ZI-00PB,Zompantitla Planta Baja
+id_locacion,desc_locacion,,,,,,
+0CF-0000,5 de Febrero,,,,,,
+8CF-0000,5 de Febrero,,,,,,
+8CF-0001,5 de Febrero 1er piso,,,,,,
+0CF-0001,5 de Febrero 1er piso,,,,,,
+0CF-00PB,5 de Febrero Planta Baja,,,,,,
+8CF-00PB,5 de Febrero Planta Baja,,,,,,
+0MA-0000,5 de Mayo y 2 de Abril,,,,,,
+8MA-0000,5 de Mayo y 2 de Abril,,,,,,
+8MA-00PB,5 de Mayo y 2 de Abril Planta Baja,,,,,,
+0MA-00PB,5 de Mayo y 2 de Abril Planta Baja,,,,,,
+0AO-0000,Alvaro Obregon,,,,,,
+8AO-0000,Alvaro Obregon,,,,,,
+8AO-00PB,Alvaro Obregon Planta Baja,,,,,,
+0AO-00PB,Alvaro Obregon Planta Baja,,,,,,
+0AR-0000,Arteaga 8-A,,,,,,
+0BO-0000,Bretaña,,,,,,
+8BO-0000,Bretaña,,,,,,
+8BO-0001,Bretaña 1er Piso,,,,,,
+0BO-0001,Bretaña 1er Piso,,,,,,
+0BO-00PB,Bretaña Planta Baja,,,,,,
+8BO-00PB,Bretaña Planta Baja,,,,,,
+8CS-0000,Carlos Santana,,,,,,
+0CS-0000,Carlos Santana,,,,,,
+0CS-0001,Carlos Santana 1er piso,,,,,,
+8CS-0001,Carlos Santana 1er piso,,,,,,
+8CS-0002,Carlos Santana 2do piso,,,,,,
+0CS-0002,Carlos Santana 2do piso,,,,,,
+0JA-0000,Centro de Justicia Alternativa,,,,,,
+0JA-0005,Centro de Justicia Alternativa,,,,,,
+0JA-0001,Centro de Justicia Alternativa 1er piso,,,,,,
+0JA-0002,Centro de Justicia Alternativa 2do piso,,,,,,
+0JA-0003,Centro de Justicia Alternativa 3er piso,,,,,,
+0JA-0004,Centro de Justicia Alternativa 4to piso,,,,,,
+0JA-00PB,Centro de Justicia Alternativa Planta Baja,,,,,,
+0ST-0000,Cereso Santa Martha Acatitla,,,,,,
+0ST-00PB,Cereso Santa Martha Acatitla Planta Baja,,,,,,
+0CO-0000,Constitucion,,,,,,
+8CO-0000,Constitucion,,,,,,
+8CO-0003,Constitucion 3er piso,,,,,,
+0CO-0003,Constitucion 3er piso,,,,,,
+0CO-00PB,Constitucion Planta Baja,,,,,,
+8CO-00PB,Constitucion Planta Baja,,,,,,
+0CT-0000,Cuitlahuac,,,,,,
+8CT-0000,Cuitlahuac,,,,,,
+8CT-0001,Cuitlahuac 1er piso,,,,,,
+0CT-0001,Cuitlahuac 1er piso,,,,,,
+0CT-0002,Cuitlahuac 2do piso,,,,,,
+8CT-0002,Cuitlahuac 2do piso,,,,,,
+8CT-0003,Cuitlahuac 3er piso,,,,,,
+0CT-0003,Cuitlahuac 3er piso,,,,,,
+0CB-00PB,Dr. Caludio Bernard Planta Baja,,,,,,
+0CB-00ST,Dr. Caludio Bernard Sotano,,,,,,
+0CB-0000,Dr. Claudio Bernard ,,,,,,
+0CB-0001,Dr. Claudio Bernard 1er piso,,,,,,
+0CB-0002,Dr. Claudio Bernard 2do piso,,,,,,
+0CB-0003,Dr. Claudio Bernard 3er piso,,,,,,
+0CB-0004,Dr. Claudio Bernard 4to piso,,,,,,
+0CB-0005,Dr. Claudio Bernard 5to piso,,,,,,
+0CB-0006,Dr. Claudio Bernard 6to piso,,,,,,
+0CB-0007,Dr. Claudio Bernard 7mo piso,,,,,,
+0CB-0008,Dr. Claudio Bernard 8vo piso,,,,,,
+0LV-0000,Dr. Lavista,,,,,,
+0LV-0001,Dr. Lavista primer piso,,,,,,
+0LV-0002,Dr. Lavista segundo piso,,,,,,
+0LC-0000,Dr. Liceaga,,,,,,
+0LC-0001,Dr. Liceaga 1er piso,,,,,,
+0LC-0002,Dr. Liceaga 2do piso,,,,,,
+0LC-0003,Dr. Liceaga 3er piso,,,,,,
+0LC-00PB,Dr. Liceaga Planta Baja,,,,,,
+0LC-00ST,Dr. Liceaga Sotano,,,,,,
+0NA-0000,Dr. Navarro,,,,,,
+0NA-1000,Dr. Navarro 100,,,,,,
+0NA-2000,Dr. Navarro 115,,,,,,
+0NA-3000,Dr. Navarro 202,,,,,,
+0EN-0000,Edificio Nezahualcoyotl,,,,,,
+0EN-N001,Edificio Nezahualcoyotl Piso 1 Ala Norte,,,,,,
+0EN-S001,Edificio Nezahualcoyotl Piso 1 Ala Sur,,,,,,
+0EN-N002,Edificio Nezahualcoyotl Piso 2 Ala Norte,,,,,,
+0EN-S002,Edificio Nezahualcoyotl Piso 2 Ala Sur,,,,,,
+0EN-00PB,Edificio Nezahualcoyotl Planta Baja,,,,,,
+0EZ-0000,Ermita Iztapalapa,,,,,,
+8EZ-0000,Ermita Iztapalapa,,,,,,
+8EZ-0001,Ermita Iztapalapa 1er piso,,,,,,
+0EZ-0001,Ermita Iztapalapa 1er piso,,,,,,
+0EZ-0002,Ermita Iztapalapa 2do piso,,,,,,
+8EZ-0002,Ermita Iztapalapa 2do piso,,,,,,
+8EZ-00PB,Ermita Iztapalapa Planta Baja,,,,,,
+0EZ-00PB,Ermita Iztapalapa Planta Baja,,,,,,
+0FC-0000,Felipe Carrillo,,,,,,
+8FC-0000,Felipe Carrillo,,,,,,
+8FC-0001,Felipe Carrillo 1er piso,,,,,,
+0FC-0001,Felipe Carrillo 1er piso,,,,,,
+0FC-00PB,Felipe Carrillo Planta Baja,,,,,,
+8FC-00PB,Felipe Carrillo Planta Baja,,,,,,
+8FG-0000,Francisco Goytia,,,,,,
+0FG-0000,Francisco Goytia,,,,,,
+0FG-00PB,Francisco Goytia Planta Baja,,,,,,
+8FG-00PB,Francisco Goytia Planta Baja,,,,,,
+8FS-0000,Fray Servando,,,,,,
+0FS-0000,Fray Servando,,,,,,
+0FS-0010,Fray Servando 10mo piso,,,,,,
+0FS-0001,Fray Servando 1er piso,,,,,,
+0FS-0002,Fray Servando 2do piso,,,,,,
+0FS-0003,Fray Servando 3er piso,,,,,,
+0FS-0004,Fray Servando 4to piso,,,,,,
+0FS-0005,Fray Servando 5to piso,,,,,,
+0FS-0006,Fray Servando 6to piso,,,,,,
+0FS-0007,Fray Servando 7mo piso,,,,,,
+0FS-0008,Fray Servando 8vo piso,,,,,,
+0FS-0009,Fray Servando 9no piso,,,,,,
+0FS-00PB,Fray Servando Planta Baja,,,,,,
+8FS-00PB,Fray Servando Planta Baja,,,,,,
+0FT-0000,Fray Servando Teresa de Mier 32,,,,,,
+0FT-0004,Fray Servando Teresa de Mier 32 Cuarto Piso,,,,,,
+0FT-0010,Fray Servando Teresa de Mier 32 Decimo Piso,,,,,,
+0FT-0012,Fray Servando Teresa de Mier 32 Duodecimo Piso,,,,,,
+0FT-0009,Fray Servando Teresa de Mier 32 Noveno Piso,,,,,,
+0FT-0008,Fray Servando Teresa de Mier 32 Octavo Piso,,,,,,
+0FT-00PB,Fray Servando Teresa de Mier 32 Planta baja,,,,,,
+0FT-0001,Fray Servando Teresa de Mier 32 Primer Piso,,,,,,
+0FT-0005,Fray Servando Teresa de Mier 32 Quinto Piso,,,,,,
+0FT-0002,Fray Servando Teresa de Mier 32 Segundo Piso,,,,,,
+0FT-0007,Fray Servando Teresa de Mier 32 Septimo Piso,,,,,,
+0FT-0006,Fray Servando Teresa de Mier 32 Sexto Piso,,,,,,
+0FT-0003,Fray Servando Teresa de Mier 32 Tercer Piso,,,,,,
+0FT-0011,Fray Servando Teresa de Mier 32 Undecimo Piso,,,,,,
+0FT-0013,Fray Servando Teresa de Mier.  Esq. Fco. del Paso y Troncoso,,,,,,
+0GL-0000,Guadalupe,,,,,,
+8GL-0000,Guadalupe,,,,,,
+8GL-0001,Guadalupe 1er piso,,,,,,
+0GL-0001,Guadalupe 1er piso,,,,,,
+0GL-00PB,Guadalupe Planta Baja,,,,,,
+8GL-00PB,Guadalupe Planta Baja,,,,,,
+8HG-0000,Hidalgo,,,,,,
+0HG-0000,Hidalgo,,,,,,
+0HG-00PB,Hidalgo Planta Baja,,,,,,
+8HG-00PB,Hidalgo Planta Baja,,,,,,
+9IC_0000,Isabel la Catolica,,,,,,
+9IC-A000,Isabel la Catolica,,,,,,
+9IC-B000,Isabel la Catolica,,,,,,
+9IC-B001,Isabel la Catolica 1er. Piso,,,,,,
+9IC-A001,Isabel la Catolica 1er. Piso,,,,,,
+9IC-A002,Isabel la Catolica 2do. Piso,,,,,,
+9IC-B002,Isabel la Catolica 2do. Piso,,,,,,
+9IC-B003,Isabel la Catolica 3er. Piso,,,,,,
+9IC-A003,Isabel la Catolica 3er. Piso,,,,,,
+9IC-A004,Isabel la Catolica 4to. Piso,,,,,,
+9IC-B004,Isabel la Catolica 4to. Piso,,,,,,
+9IC-B005,Isabel la Catolica 5to. Piso,,,,,,
+9IC-A005,Isabel la Catolica 5to. Piso,,,,,,
+9IC-A006,Isabel la Catolica 6to. Piso,,,,,,
+9IC-B006,Isabel la Catolica 6to. Piso,,,,,,
+9IC-B007,Isabel la Catolica 7o. Piso,,,,,,
+9IC-A007,Isabel la Catolica 7o. Piso,,,,,,
+9IC-A008,Isabel la Catolica 8o. Piso,,,,,,
+9IC-B008,Isabel la Catolica 8o. Piso,,,,,,
+9IC-B0PB,Isabel la Catolica Planta Baja,,,,,,
+9IC-A0PB,Isabel la Catolica Planta Baja,,,,,,
+0IM-0000,Islas Marias,,,,,,
+0IM-0001,Islas Marias,,,,,,
+0VG-0000,LA VIGA,,,,,,
+LIC-9999,Lugar de Trabajo Licencias,,,,,,
+8MT-0000,Matamoros,,,,,,
+0MT-0000,Matamoros ,,,,,,
+0MT-00PB,Matamoros Planta Baja,,,,,,
+8MT-00PB,Matamoros Planta Baja,,,,,,
+0AM-0000,México,,,,,,
+0AM-00PB,México,,,,,,
+0PR-0000,Niños Héroes,,,,,,
+0PR-0001,Niños Héroes 150 1er piso,,,,,,
+0PR-0002,Niños Héroes 150 2do piso,,,,,,
+0PR-0003,Niños Héroes 150 3er piso,,,,,,
+0PR-0004,Niños Héroes 150 4to piso,,,,,,
+0PR-0006,Niños Héroes 150 6to piso,,,,,,
+0PR-0007,Niños Héroes 150 7mo piso,,,,,,
+0PR-0008,Niños Héroes 150 8vo piso,,,,,,
+0PR-0009,Niños Héroes 150 9no piso,,,,,,
+0PR-0010,Niños Héroes 150 10mo piso,,,,,,
+0PR-0011,Niños Héroes 150 11vo piso,,,,,,
+0PR-00PB,Niños Héroes 150 Planta Baja,,,,,,
+0PR-00ST,Niños Héroes 150 Sotano,,,,,,
+NH-0133,Niños Héroes 133,,,,,,
+NH-0119,Niños Héroes 119,,,,,,
+NH-0132,Niños Héroes 132,,,,,,
+0OM-0000,Obrero Mundial,,,,,,
+0OM-0001,Obrero Mundial 1er piso,,,,,,
+0OM-00PB,Obrero Mundial Planta Baja,,,,,,
+0OM-00ST,Obrero Mundial Sotano,,,,,,
+0OT-0000,Oriente,,,,,,
+8OT-0000,Oriente,,,,,,
+8OT-0001,Oriente 1er piso,,,,,,
+0OT-0001,Oriente 1er piso,,,,,,
+0OT-00PB,Oriente Planta Baja,,,,,,
+8OT-00PB,Oriente Planta Baja,,,,,,
+0AA-PC02,Pagaduria Central Cheques 02,,,,,,
+0AA-PC01,Pagaduria Central Efectivo 01,,,,,,
+0PM-0000,Pedro Martir,,,,,,
+8PM-0000,Pedro Martir,,,,,,
+8PM-0001,Pedro Martir 1er piso,,,,,,
+0PM-0001,Pedro Martir 1er piso,,,,,,
+6PJ-0000,Plaza Juarez ,,,,,,
+6PJ-0010,Plaza Juárez 10mo piso,,,,,,
+6PJ-0011,Plaza Juárez 11ro piso,,,,,,
+6PJ-0012,Plaza Juárez 12do piso,,,,,,
+6PJ-0013,Plaza Juárez 13ro piso,,,,,,
+6PJ-0014,Plaza Juárez 14to piso,,,,,,
+6PJ-0015,Plaza Juárez 15to piso,,,,,,
+6PJ-0016,Plaza Juárez 16to piso,,,,,,
+6PJ-0017,Plaza Juárez 17mo piso,,,,,,
+6PJ-0001,Plaza Juárez 1er piso,,,,,,
+6PJ-0002,Plaza Juárez 2do piso,,,,,,
+6PJ-0003,Plaza Juárez 3er piso,,,,,,
+6PJ-0004,Plaza Juárez 4to piso,,,,,,
+6PJ-0005,Plaza Juárez 5to piso,,,,,,
+6PJ-0006,Plaza Juárez 6to piso,,,,,,
+6PJ-0007,Plaza Juárez 7mo piso,,,,,,
+6PJ-0008,Plaza Juárez 8vo piso,,,,,,
+6PJ-0009,Plaza Juárez 9no piso,,,,,,
+6PJ-00PB,Plaza Juarez Planta Baja,,,,,,
+6PJ-00ST,Plaza Juarez Sotano,,,,,,
+ROOT,Raiz,,,,,,
+8RC-0000,Ramirez,,,,,,
+0RC-0000,Ramirez,,,,,,
+0RC-00PB,Ramirez Planta Baja,,,,,,
+8RC-00PB,Ramirez Planta Baja,,,,,,
+1RN-0000,Reclusorio Norte,,,,,,
+1RN-1000,Reclusorio Norte Edificio Antiguo,,,,,,
+1RN-1001,Reclusorio Norte Edificio Antiguo 1er piso,,,,,,
+1RN-1002,Reclusorio Norte Edificio Antiguo 2do piso,,,,,,
+1RN-10PB,Reclusorio Norte Edificio Antiguo Planta Baja,,,,,,
+1RN-10ST,Reclusorio Norte Edificio Antiguo Sotano,,,,,,
+1RN-2000,Reclusorio Norte Edificio Nuevo,,,,,,
+1RN-2001,Reclusorio Norte Edificio Nuevo 1er piso,,,,,,
+1RN-2002,Reclusorio Norte Edificio Nuevo 2do piso,,,,,,
+1RN-20PB,Reclusorio Norte Edificio Nuevo Planta Baja,,,,,,
+1RN-20ST,Reclusorio Norte Edificio Nuevo Sotano,,,,,,
+2RO-0000,Reclusorio Oriente,,,,,,
+2RO-10PB,Reclusorio Oriente Edificio Anriguo Planta Baja,,,,,,
+2RO-1000,Reclusorio Oriente Edificio Antiguo,,,,,,Kamishikimi Kumano-imasu Shrine
+2RO-1001,Reclusorio Oriente Edificio Antiguo 1er piso,,,,,,
+2RO-1002,Reclusorio Oriente Edificio Antiguo 2do piso,,,,,,
+2RO-10ST,Reclusorio Oriente Edificio Antiguo Sotano,,,,,,
+2RO-2000,Reclusorio Oriente Edificio Nuevo,,,,,,
+2RO-2001,Reclusorio Oriente Edificio Nuevo 1er piso,,,,,,
+2RO-2002,Reclusorio Oriente Edificio Nuevo 2do piso,,,,,,
+2RO-20PB,Reclusorio Oriente Edificio Nuevo Planta Baja,,,,,,
+2RO-20ST,Reclusorio Oriente Edificio Nuevo Sotano,,,,,,
+3RS-0000,Reclusorio Sur,,,,,,
+3RS-1000,Reclusorio Sur Edificio Antiguo,,,,,,
+3RS-1001,Reclusorio Sur Edificio Antiguo 1er piso,,,,,,
+3RS-1002,Reclusorio Sur Edificio Antiguo 2do piso,,,,,,
+3RS-10PB,Reclusorio Sur Edificio Antiguo Planta Baja,,,,,,
+3RS-10ST,Reclusorio Sur Edificio Antiguo Sotano,,,,,,
+3RS-2000,Reclusorio Sur Edificio Nuevo,,,,,,
+3RS-2001,Reclusorio Sur Edificio Nuevo 1er piso,,,,,,
+3RS-2002,Reclusorio Sur Edificio Nuevo 2do piso,,,,,,
+3RS-20PB,Reclusorio Sur Edificio Nuevo Planta Baja,,,,,,
+3RS-20ST,Reclusorio Sur Edificio Nuevo Sotano,,,,,,
+8RV-0000,Revolucion,,,,,,
+0RV-0000,Revolucion,,,,,,
+0AR-0001,Revolución 1340,,,,,,
+0AR-00PB,Revolución 1340,,,,,,
+0RV-0001,Revolucion 1er piso,,,,,,
+8RV-0001,Revolucion 1er piso,,,,,,
+8RV-0002,Revolucion 2do piso,,,,,,
+0RV-0002,Revolucion 2do piso,,,,,,
+0RV-0003,Revolucion 3er piso,,,,,,
+8RV-0003,Revolucion 3er piso,,,,,,
+8RV-00PB,Revolucion Planta Baja,,,,,,
+0RV-00PB,Revolucion Planta Baja,,,,,,
+0RV-00ST,Revolucion Sotano,,,,,,
+8RV-00ST,Revolucion Sotano,,,,,,
+5RP-00ST,Rio de la Palta Sotano,,,,,,
+5RP-0000,Rio de la Plata,,,,,,
+5RP-0010,Rio de la Plata 10mo piso,,,,,,
+5RP-0011,Rio de la Plata 11ro piso,,,,,,
+5RP-0012,Rio de la Plata 12do piso,,,,,,
+5RP-0013,Rio de la Plata 13vo piso,,,,,,
+5RP-0014,Rio de la Plata 14to piso,,,,,,
+5RP-0015,Rio de la Plata 15to piso,,,,,,
+5RP-0001,Rio de la Plata 1er piso,,,,,,
+5RP-0002,Rio de la Plata 2do piso,,,,,,
+5RP-0003,Rio de la Plata 3er piso,,,,,,
+5RP-0004,Rio de la Plata 4to piso,,,,,,
+5RP-0005,Rio de la Plata 5to piso,,,,,,
+5RP-0006,Rio de la Plata 6to piso,,,,,,
+5RP-0007,Rio de la Plata 7mo piso,,,,,,
+5RP-0008,Rio de la Plata 8vo piso,,,,,,
+5RP-0009,Rio de la Plata 9no piso,,,,,,
+5RP-00PB,Rio de la Plata Planta Baja,,,,,,
+4RL-0000,Río Lerma,,,,,,
+4RL-0001,Río Lerma 1er piso,,,,,,
+4RL-0002,Río Lerma 2do piso,,,,,,
+4RL-0003,Río Lerma 3er piso,,,,,,
+4RL-0004,Río Lerma 4to piso,,,,,,
+4RL-0005,Río Lerma 5to piso,,,,,,
+4RL-0006,Río Lerma 6to piso,,,,,,
+4RL-0007,Río Lerma 7mo piso,,,,,,
+4RL-00PB,Río Lerma Planta Baja,,,,,,
+0SM-0000,Semefo,,,,,,
+0SM-0001,Semefo 1er piso,,,,,,
+0SM-0002,Semefo 2do piso,,,,,,
+0SM-0003,Semefo 3er piso,,,,,,
+0SM-00PB,Semefo Planta Baja,,,,,,
+0SM-00ST,Semefo Sotano,,,,,,
+4SL-0000,Sullivan,,,,,,
+4SL-0010,Sullivan 10mo piso,,,,,,
+4SL-0001,Sullivan 1er piso,,,,,,
+4SL-0002,Sullivan 2do piso,,,,,,
+4SL-0003,Sullivan 3er piso,,,,,,
+4SL-0004,Sullivan 4to piso,,,,,,
+4SL-0005,Sullivan 5to piso,,,,,,
+4SL-0006,Sullivan 6to piso,,,,,,
+4SL-0007,Sullivan 7mo piso,,,,,,
+4SL-0008,Sullivan 8vo piso,,,,,,
+4SL-0009,Sullivan 9no piso,,,,,,
+4SL-00PB,Sullivan Planta Baja,,,,,,
+4SL-00ST,Sullivan Sotano,,,,,,
+8AT-0000,Te,,,,,,
+0AT-0000,Te,,,,,,
+0AT-00PB,Te Planta Baja,,,,,,
+8AT-00PB,Te Planta Baja,,,,,,
+8TL-0000,Tlahuac,,,,,,
+0TL-0000,Tlahuac ,,,,,,
+0TL-0001,Tlahuac 1er piso,,,,,,
+8TL-0001,Tlahuac 1er piso,,,,,,
+8TL-00PB,Tlahuac Planta Baja,,,,,,
+0TL-00PB,Tlahuac Planta Baja,,,,,,
+0TN-0000,Torre Norte,,,,,,
+0TN-0010,Torre Norte 10mo piso,,,,,,
+0TN-0001,Torre Norte 1er piso,,,,,,
+0TN-0002,Torre Norte 2do piso,,,,,,
+0TN-0003,Torre Norte 3er piso,,,,,,
+0TN-0004,Torre Norte 4to piso,,,,,,
+0TN-0005,Torre Norte 5to piso,,,,,,
+0TN-0006,Torre Norte 6to piso,,,,,,
+0TN-0007,Torre Norte 7mo piso,,,,,,
+0TN-0008,Torre Norte 8vo piso,,,,,,
+0TN-0009,Torre Norte 9no piso,,,,,,
+0TN-00PB,Torre Norte Planta Baja,,,,,,
+0TN-00ST,Torre Norte Sotano,,,,,,
+0TS-0000,Torre Sur,,,,,,
+0TS-0010,Torre Sur 10mo piso,,,,,,
+0TS-0001,Torre Sur 1er piso,,,,,,
+0TS-0002,Torre Sur 2do piso,,,,,,
+0TS-0003,Torre Sur 3er piso,,,,,,
+0TS-0004,Torre Sur 4to piso,,,,,,
+0TS-0005,Torre Sur 5to piso,,,,,,
+0TS-0006,Torre Sur 6to piso,,,,,,
+0TS-0007,Torre Sur 7mo piso,,,,,,
+0TS-0008,Torre Sur 8vo piso,,,,,,
+0TS-0009,Torre Sur 9no piso,,,,,,
+0TS-00PB,Torre Sur Planta Baja,,,,,,
+0TS-00ST,Torre Sur Sotano,,,,,,
+8ZI-0000,Zompantitla,,,,,,
+0ZI-0000,Zompantitla,,,,,,
+0ZI-00PB,Zompantitla Planta Baja,,,,,,
+8ZI-00PB,Zompantitla Planta Baja,,,,,,
+CJ-0000,Consejo de la Judicatura de la Ciudad de México,,,,,,
+PZ-0001,Patriotismo 1er piso,,,,,,
+PZ-0002,Patriotismo 2do piso,,,,,,
+PZ-0003,Patriotismo 3er piso,,,,,,
+PZ-0004,Patriotismo 4to piso,,,,,,
+PZ-0005,Patriotismo 5to piso,,,,,,
+PZ-0006,Patriotismo 6to piso,,,,,,
+PZ-0007,Patriotismo 7mo piso,,,,,,
+PZ-0008,Patriotismo 8vo piso,,,,,,
+PZ-0009,Patriotismo 9no piso,,,,,,
+PZ-0010,Patriotismo 10mo piso,,,,,,
+PZ-0011,Patriotismo 11vo piso,,,,,,
+PZ-0012,Patriotismo 12vo piso,,,,,,
+PZ-0013,Patriotismo 13vo piso,,,,,,
+PZ-0014,Patriotismo 14vo piso,,,,,,
+PZ-0015,Patriotismo 15vo piso,,,,,,
+PZ-0016,Patriotismo 16vo piso,,,,,,
+PZ-0017,Patriotismo 17vo piso,,,,,,
+PZ-0018,Patriotismo 18vo piso,,,,,,
+PZ-0019,Patriotismo 19vo piso,,,,,,
+PZ-0020,Patriotismo 20vo piso,,,,,,
+PZ-0021,Patriotismo 21vo piso,,,,,,
+PZ-0022,Patriotismo 22vo piso,,,,,,
+RM-0000,Reclusorio Santa Martha,,,,,,
+GL-0000,CENDI Gloria Leduc de Agüero,,,,,,
+PS-0000,CENDI Pino Suárez,,,,,,
+PA-0000,CENDI Patricia Átala,,,,,,
