@@ -62,6 +62,29 @@
                             <p class="mb-4 text-base font-normal text-amber-700">Aun no hay correo(s) receptores</p>
                         @endif
                     </li>
+                    <li class="mb-10 ms-6">
+                        <span
+                            class="absolute flex items-center justify-center w-6 h-6 rounded-full bg-amber-100 -start-3 ring-8 ring-white ">
+                            <i class="text-amber-800 fa-solid fa-envelope-open"></i>
+                        </span>
+                        <h3 class="mb-1 text-lg font-semibold text-gray-900 ">Documento enviado</h3>
+                        @if ($correos->isNotEmpty())
+                        <ul class="list-disc">
+                            @foreach ($correos as $correo)
+                                <li class="mb-4 text-base font-normal text-amber-800">
+                                    <a href="{{ asset('pdf/' . $correo->nombreDocumento . '.pdf') }}" target="_blank">{{ $correo->nombreDocumento }}</a>
+                                    <br>
+                                    <span class="text-sm font-bold text-amber-500">{{ $correo->created_at->diffForHumans() }}</span>
+                                    <br>
+                                    <span class="text-sm font-bold text-amber-400">{{ $correo->created_at->isoFormat('LL') }}</span>
+                                </li>
+                            @endforeach
+                        </ul>
+
+                        @else
+                            <p class="mb-4 text-base font-normal text-amber-700">Aun no hay documento enviado</p>
+                        @endif
+                    </li>
                 </ol>
             </div>
         </div>

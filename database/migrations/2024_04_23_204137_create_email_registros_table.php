@@ -15,6 +15,7 @@ return new class extends Migration
         $table->id();
         $table->foreignId('id_empleado')->constrained('update_empleados');
         $table->string('emailResptor');
+        $table->string('nombreDocumento');
         $table->foreignId('fk_userEmisor')->constrained('users');
         $table->timestamps();
     });

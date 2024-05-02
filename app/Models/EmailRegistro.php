@@ -12,6 +12,7 @@ class EmailRegistro extends Model
     public $fillable = [
         'id_empleado',
         'emailResptor',
+        'nombreDocumento',
         'fk_userEmisor',
     ];
 

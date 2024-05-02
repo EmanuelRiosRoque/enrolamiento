@@ -19,7 +19,7 @@ class petitionController extends Controller
     {
         $inmuebles = AreasInmuebles::all();
         $data = json_decode($request->query('data'), true);
-        
+
         // Verificar si $data['empleado'] está presente
         if (isset($data['empleado'])) {
             $data = $data['empleado'];
@@ -78,9 +78,7 @@ class petitionController extends Controller
     {
         // Busca un registro existente con el ID proporcionado
         $empleado = UpdateEmpleados::firstOrNew(['nuM_EMPL' => $id]);
-        // $request->all();
-        // dd($request);
-        // exit;
+
         $userId = Auth::id();
         // Actualiza los campos con los valores de la solicitud
         $empleado->fill([

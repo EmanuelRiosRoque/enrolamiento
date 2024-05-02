@@ -14,6 +14,7 @@ use PhpOffice\PhpWord\Settings;
 use PhpOffice\PhpWord\IOFactory;
 
 use App\Notifications\SendFormat;
+use Illuminate\Support\Facades\Storage;
 use PhpOffice\PhpWord\TemplateProcessor;
 use Illuminate\Support\Facades\Notification;
 
@@ -96,13 +97,13 @@ class empleadosController extends Controller
 
              // Guardar el PDF con los márgenes configurados
              $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
-             $pdfFilename = time() . '.pdf';
+             $pdfFilename = $empleado->nuM_EMPL . '.pdf';
              $pdfPath = public_path('temp/' . $pdfFilename);
              $pdfWriter->save($pdfPath);
 
              // Descargar el PDF generado
-             return response()->download($pdfPath, 'documentoGenerado.pdf');
-         } catch (\Exception $e) {
+             return response()->download($pdfPath, $empleado->nuM_EMPL . '.pdf');
+            } catch (\Exception $e) {
              // Si ocurre un error, regresar a la página anterior con el código de error
              dd($e->getMessage());
          }
@@ -209,17 +210,18 @@ class empleadosController extends Controller
     {
 
         $user = UpdateEmpleados::where('nuM_EMPL', $nEmpleado)->first();
-
         $nombre = $user->nombres;
         $apellidoPaterno = $user->apellidop;
         $apellidoMaterno = $user->apellidom;
         $nombreCompleto = $nombre . ' ' . $apellidoPaterno . ' ' . $apellidoMaterno;
         $idEmpleado = $user->id;
+        $nombreDocumento = str_replace('.pdf', '', $request->file('file')->getClientOriginalName());
 
         EmailRegistro::create([
             'id_empleado' => $idEmpleado,
             'emailResptor' => $request->input('email'), // Debes obtener el email del receptor del request
             'fk_userEmisor' => auth()->id(), // Obtener el ID del usuario emisor autenticado
+            'nombreDocumento' => $nombreDocumento,
         ]);
 
         $links = [];
@@ -232,6 +234,10 @@ class empleadosController extends Controller
             // Verifica si el archivo es un PDF y cumple con el límite de tamaño
             if ($documento->getClientOriginalExtension() === 'pdf' && $documento->getSize() < 5000000) {
                 try {
+
+                    $rutaDestino = public_path('pdf/' . $nombreDocumento . '.pdf');
+                    $resultado = copy($documento->getRealPath(), $rutaDestino);
+                    // Copia el contenido del archivo temporal al destino
                     // Lee el contenido del archivo y codifícalo en base64
                     // $base64 = base64_encode(file_get_contents($documento->getRealPath()));
 
