@@ -63,7 +63,7 @@ class PetitionApi extends Component
                 // El JSON no se pudo decodificar correctamente
                 $this->responseData = [];
                 $this->hideLoader();
-                $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.';
+                $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde demasiado tiempo.';
             }
         } else {
             // La solicitud falló
