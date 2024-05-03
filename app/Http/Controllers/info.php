@@ -8,16 +8,16 @@ class info extends Controller
 {
     public function index()
     {
-        phpinfo();
+        //phpinfo();
 
 
         // $curl_post_data = [
         //     "NumEmpleado" => 8005715
         // ];
 
-        // $n_empleado = 8005715;
+         $n_empleado = 8005715;
 
-		// $url ="http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=".$n_empleado;
+		 $url ="http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=".$n_empleado;
         // $data = json_encode($curl_post_data);
         // $ch=curl_init();
         // curl_setopt($ch, CURLOPT_URL, $url);
@@ -31,5 +31,16 @@ class info extends Controller
         // $response = curl_exec($ch);
         // curl_close($ch);
         // echo $response;
+        $ch = curl_init();
+
+        // Configura las opciones de cURL
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 60); // Aumenta el tiempo de espera a 60 segundos
+
+        // Realiza la solicitud cURL
+        $response = curl_exec($ch);
+
+        echo $response;
     }
 }
