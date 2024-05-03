@@ -47,7 +47,7 @@ class PetitionApi extends Component
         // Realiza la solicitud cURL
         $response = curl_exec($ch);
 
-        dd($response);
+        // dd($response);
 
         // Cierra la sesión cURL
         curl_close($ch);
