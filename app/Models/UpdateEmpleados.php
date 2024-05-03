@@ -26,6 +26,7 @@ class UpdateEmpleados extends Model
         'nivel',
         'plaza',
         'fk_usrCreated',
+        'n_tarjeta',
     ];
 
 

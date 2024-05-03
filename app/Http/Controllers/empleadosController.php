@@ -80,6 +80,7 @@ class empleadosController extends Controller
              $template->setValue('AREA', $empleado->descripcioN_AREA_TRABAJO);
              $template->setValue('CARGO', $empleado->descripcioN_PUESTO);
              $template->setValue('INMUEBLE', $empleado->areA_ADSCRIPCION);
+             $template->setValue('TARJETA', $empleado->n_tarjeta);
              // Asigna los demás valores según las variables en tu documento de Word
 
              // Insertar la imagen de la firma en el documento
