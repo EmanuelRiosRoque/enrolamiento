@@ -82,8 +82,6 @@
                                     <li class="mb-4 text-base font-normal text-amber-800">
                                         <a href="{{ asset('pdf/' . $correo->nombreDocumento . '.pdf') }}" target="_blank">{{ $correo->nombreDocumento }}</a>
                                         <br>
-                                        <span class="text-sm font-bold text-amber-500">{{ $correo->created_at->diffForHumans() }}</span>
-                                        <br>
                                         <span class="text-sm font-bold text-amber-400">{{ $correo->created_at->isoFormat('LL') }}</span>
                                     </li>
                                 @endif

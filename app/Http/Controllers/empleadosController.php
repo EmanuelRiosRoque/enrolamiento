@@ -239,27 +239,27 @@ class empleadosController extends Controller
                     $resultado = copy($documento->getRealPath(), $rutaDestino);
                     // Copia el contenido del archivo temporal al destino
                     // Lee el contenido del archivo y codifícalo en base64
-                    // $base64 = base64_encode(file_get_contents($documento->getRealPath()));
+                    $base64 = base64_encode(file_get_contents($documento->getRealPath()));
 
-                    // // Construye el objeto de información para enviar a la API
-                    // $infoApi = [
-                    //     "metadata" => ["id_datoadicional" => 9, "area_tsjcdmx" => "DDMS"],
-                    //     "filename" => $documento->getClientOriginalName(),
-                    //     "doc_base64" => $base64,
-                    // ];
+                    // Construye el objeto de información para enviar a la API
+                    $infoApi = [
+                        "metadata" => ["id_datoadicional" => 9, "area_tsjcdmx" => "DDMS"],
+                        "filename" => $documento->getClientOriginalName(),
+                        "doc_base64" => $base64,
+                    ];
 
-                    // // Realiza la solicitud POST a la API utilizando GuzzleHttp
-                    // $client = new Client();
-                    // $response = $client->post('http://172.19.40.132:8000/api/sintra', [
-                    //     'headers' => ['Content-Type' => 'application/json'],
-                    //     'body' => json_encode($infoApi)
-                    // ]);
+                    // Realiza la solicitud POST a la API utilizando GuzzleHttp
+                    $client = new Client();
+                    $response = $client->post('https://gestordocumental.poderjudicialcdmx.gob.mx/api/sintra', [
+                        'headers' => ['Content-Type' => 'application/json'],
+                        'body' => json_encode($infoApi)
+                    ]);
 
-                    // // Obtiene la respuesta de la API
-                    // $responseData = json_decode($response->getBody(), true);
+                    // Obtiene la respuesta de la API
+                    $responseData = json_decode($response->getBody(), true);
 
                     // Obtén el enlace generado por la API
-                    //$apiLink = $responseData['url']; // Ajusta esto según la estructura de la respuesta de tu API
+                    $apiLink = $responseData['url']; // Ajusta esto según la estructura de la respuesta de tu API
 
                     // Pasa el enlace como dato a la notificación
                     Notification::route('mail', $request->email)
