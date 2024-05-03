@@ -76,6 +76,7 @@ class petitionController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // dd($request->all());
         // Busca un registro existente con el ID proporcionado
         $empleado = UpdateEmpleados::firstOrNew(['nuM_EMPL' => $id]);
 
@@ -88,7 +89,7 @@ class petitionController extends Controller
             'estatus' => "Activo",
             'rfc' => $request->rfc,
             'curp' => $request->curp,
-            'areA_ADSCRIPCION' => $request->areA_ADSCRIPCION,
+            'areA_ADSCRIPCION' => $request->hidden_areaAdscrito,
             'descripcioN_AREA_ADSCRIPCION' => $request->descripcioN_AREA_ADSCRIPCION,
             'puesto' => $request->puesto,
             'descripcioN_PUESTO' => $request->descripcioN_PUESTO,

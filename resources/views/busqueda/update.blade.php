@@ -29,11 +29,12 @@
                                 </div>
                             </div>
                             <div class="relative z-0 w-full mb-5 group">
-                                <input type="text" name="descripcioN_PUESTO" id="floating_descriP" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required value="{{$data['descripcioN_PUESTO']}}" disabled />
+                                <input type="text" name="descripcioN_PUESTO" id="floating_descriP" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required value="{{$data['descripcioN_PUESTO']}}" />
                                 <label for="floating_descriP" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Puesto</label>
                             </div>
+
                             <div class="relative z-0 w-full mb-5 group">
-                                <input type="text" name="plaza" id="floating_plaza" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required value="{{$data['plaza']}}" disabled />
+                                <input type="text" name="plaza" id="floating_plaza" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required value="{{$data['plaza']}}" />
                                 <label for="floating_plaza" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Plaza</label>
                             </div>
                             <div class="relative z-0 w-full mb-5 group">
@@ -41,7 +42,7 @@
                                 <label for="floating_RFC" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">RFC</label>
                             </div>
                             <div class="relative z-0 w-full mb-5 group">
-                                <input type="text" name="curp" id="floating_repeat_CURP" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required value="{{$data['curp']}}" disabled/>
+                                <input type="text" name="curp" id="floating_repeat_CURP" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required value="{{$data['curp']}}"/>
                                 <label for="floating_repeat_CURP" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">CURP</label>
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
@@ -58,6 +59,7 @@
                                     </select>
                                     <label for="floating_areaAdscrito" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Area adscrito</label>
                                 </div>
+                                <input type="hidden" id="hidden_areaAdscrito" name="hidden_areaAdscrito">
 
                                 {{-- Ruta para agregar nuevo inmueble --}}
                                 {{-- <div>
@@ -98,6 +100,13 @@
     </script>
         <script src="{{asset('js/aregloAsociativo.js')}}"></script>
 
-
+        <script>
+           document.getElementById('floating_areaAdscrito').addEventListener('change', function() {
+        var selectedIndex = this.selectedIndex;
+        var selectedOption = this.options[selectedIndex];
+        var selectedText = selectedOption.textContent;
+        document.getElementById('hidden_areaAdscrito').value = selectedText;
+    });
+        </script>
     @endpush
 </x-app-layout>

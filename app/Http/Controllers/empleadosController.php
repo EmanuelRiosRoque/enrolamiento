@@ -54,13 +54,13 @@ class empleadosController extends Controller
             //  // Guardar la imagen de la firma en una ubicación temporal
             //  $firmaPath = public_path('temp/firma.png');
             //  file_put_contents($firmaPath, base64_decode($firmaBase64));
-
-             // Definir la ruta de la biblioteca mPDF
+            // Definir la ruta de la biblioteca mPDF
              Settings::setPdfRendererPath(base_path('vendor/mpdf/mpdf'));
              Settings::setPdfRendererName('MPDF');
 
              // Buscar el empleado en la base de datos basado en el número de empleado proporcionado
              $empleado = UpdateEmpleados::where('nuM_EMPL', $numeroEmpleado)->first();
+            //  dd($empleado);
 
              // Verificar si se encontró el empleado
              if (!$empleado) {
@@ -77,6 +77,9 @@ class empleadosController extends Controller
              $template->setValue('AP_MAT', $empleado->apellidom);
              $template->setValue('RFC', $empleado->rfc);
              $template->setValue('ID_POS', $empleado->plaza);
+             $template->setValue('AREA', $empleado->descripcioN_AREA_TRABAJO);
+             $template->setValue('CARGO', $empleado->descripcioN_PUESTO);
+             $template->setValue('INMUEBLE', $empleado->areA_ADSCRIPCION);
              // Asigna los demás valores según las variables en tu documento de Word
 
              // Insertar la imagen de la firma en el documento
