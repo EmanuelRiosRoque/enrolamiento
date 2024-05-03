@@ -5,8 +5,6 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\UpdateEmpleados;
 use Illuminate\Support\Facades\Http;
-use GuzzleHttp\Client;
-use GuzzleHttp\Exception\RequestException;
 
 class PetitionApi extends Component
 {
@@ -35,29 +33,27 @@ class PetitionApi extends Component
             return;
         }
 
-        $client = new Client();
 
-        try {
-            $response = $client->get('http://172.19.202.43/WebServices/META/api/Empleado', [
-                'query' => ['NumEmpleado' => $this->nEmpleado]
-            ]);
+        $curl_post_data = [
+            "NumEmpleado" => $this->nEmpleado
+        ];
 
-            $statusCode = $response->getStatusCode();
+        $n_empleado = $this->nEmpleado;
 
-            if ($statusCode == 200) {
-                $this->responseData = json_decode($response->getBody(), true);
-                $this->hideLoader();
-                $this->error = null; // Resetea el mensaje de error en caso de éxito
-            } else {
-                $this->responseData = [];
-                $this->hideLoader();
-                $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
-            }
-        } catch (RequestException $e) {
-            $this->responseData = [];
-            $this->hideLoader();
-            $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
-        }
+		$url ="http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=".$n_empleado;
+        $data = json_encode($curl_post_data);
+        $ch=curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_ENCODING, "");
+        curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
+        $response = curl_exec($ch);
+        curl_close($ch);
+        dd($response);
     }
 
 
