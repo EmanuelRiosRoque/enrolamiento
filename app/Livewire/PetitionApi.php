@@ -33,21 +33,43 @@ class PetitionApi extends Component
         return;
     }
 
-    // Modifica la URL para incluir el número de empleado
-    $url = 'http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=' . $this->nEmpleado;
+    // URL de la solicitud
+    $n_empleado = $this->nEmpleado;
+    $url = "http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=" . $n_empleado;
 
-    // Aumenta el tiempo de espera de la solicitud a 30 segundos (30000 milisegundos)
-    $response = Http::timeout(30)->get($url);
+    // Configuración de cURL
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_ENCODING, "");
+    curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
 
-    if ($response->ok()) {
-        $this->responseData = $response->json();
-        $this->hideLoader();
-        $this->error = null; // Resetea el mensaje de error en caso de éxito
-    } else {
+    // Ejecutar la solicitud cURL
+    $response = curl_exec($ch);
+
+    // Verificar si la solicitud fue exitosa
+    if ($response === false) {
         $this->responseData = [];
         $this->hideLoader();
         $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
+    } else {
+        $http_status = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        if ($http_status == 200) {
+            $this->responseData = json_decode($response, true);
+            $this->hideLoader();
+            $this->error = null; // Resetea el mensaje de error en caso de éxito
+        } else {
+            $this->responseData = [];
+            $this->hideLoader();
+            $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
+        }
     }
+
+    // Cerrar la conexión cURL
+    curl_close($ch);
 }
 
 
