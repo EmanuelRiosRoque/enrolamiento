@@ -37,6 +37,7 @@ class PetitionApi extends Component
             'NumEmpleado' => $this->nEmpleado
         ]);
 
+
         if ($response->ok()) {
             $this->responseData = $response->json();
             $this->hideLoader();
