@@ -1,4 +1,10 @@
-<div id="timeline-modal" tabindex="-1" aria-hidden="true"
+{{-- {{dd($empleado->id)}}
+@foreach ($correos as $correo )
+    {{dd($correo->id_empleado)}}
+@endforeach --}}
+
+
+<div id="timeline-modal-{{$empleado->id}}" tabindex="-1" aria-hidden="true"
     class="fixed top-0 left-0 right-0 z-50 flex flex-col items-center justify-center hidden w-full h-screen overflow-x-hidden overflow-y-auto md:inset-0">
     <!-- Fondo semitransparente -->
     <div class="fixed top-0 bottom-0 left-0 right-0 bg-black opacity-50"></div>
@@ -13,7 +19,7 @@
                 </h3>
                 <button type="button"
                     class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center"
-                    data-modal-hide="timeline-modal">
+                    data-modal-hide="timeline-modal-{{$empleado->id}}">
                     <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                         viewBox="0 0 14 14">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -51,11 +57,12 @@
                         @if ($correos->isNotEmpty())
                         <ul class="list-disc">
                             @foreach ($correos as $correo)
-                                <li class="mb-4 text-base font-normal text-amber-800">{{$correo->emailResptor}}
-                                    <br>  <span class="text-sm font-bold text-amber-500">{{$correo->created_at->diffForHumans()}}</span>
-                                    <br>  <span class="text-sm font-bold text-amber-400">{{$correo->created_at->isoFormat('LL')}}</span>
-                                </li>
-
+                                @if ($correo->id_empleado == $empleado->id)
+                                    <li class="mb-4 text-base font-normal text-amber-800">{{$correo->emailResptor}}
+                                        <br>  <span class="text-sm font-bold text-amber-500">{{$correo->created_at->diffForHumans()}}</span>
+                                        <br>  <span class="text-sm font-bold text-amber-400">{{$correo->created_at->isoFormat('LL')}}</span>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
                         @else
@@ -71,13 +78,15 @@
                         @if ($correos->isNotEmpty())
                         <ul class="list-disc">
                             @foreach ($correos as $correo)
-                                <li class="mb-4 text-base font-normal text-amber-800">
-                                    <a href="{{ asset('pdf/' . $correo->nombreDocumento . '.pdf') }}" target="_blank">{{ $correo->nombreDocumento }}</a>
-                                    <br>
-                                    <span class="text-sm font-bold text-amber-500">{{ $correo->created_at->diffForHumans() }}</span>
-                                    <br>
-                                    <span class="text-sm font-bold text-amber-400">{{ $correo->created_at->isoFormat('LL') }}</span>
-                                </li>
+                                @if ($correo->id_empleado == $empleado->id)
+                                    <li class="mb-4 text-base font-normal text-amber-800">
+                                        <a href="{{ asset('pdf/' . $correo->nombreDocumento . '.pdf') }}" target="_blank">{{ $correo->nombreDocumento }}</a>
+                                        <br>
+                                        <span class="text-sm font-bold text-amber-500">{{ $correo->created_at->diffForHumans() }}</span>
+                                        <br>
+                                        <span class="text-sm font-bold text-amber-400">{{ $correo->created_at->isoFormat('LL') }}</span>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
 

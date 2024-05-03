@@ -97,7 +97,7 @@
                                                     {{$empleado->puesto}}
                                                 </td> --}}
                                                 <td class="px-6 py-4">
-                                                    <button data-modal-target="timeline-modal" data-modal-toggle="timeline-modal" class="inline-flex items-center px-4 py-2 font-bold rounded cursor-pointer text-amber-900 bg-amber-500 hover:bg-amber-600" type="button">
+                                                    <button data-modal-target="timeline-modal-{{$empleado->id}}" data-modal-toggle="timeline-modal-{{$empleado->id}}" class="inline-flex items-center px-4 py-2 font-bold rounded cursor-pointer text-amber-900 bg-amber-500 hover:bg-amber-600" type="button">
                                                         <i class="mr-1 fa-solid fa-circle-info"></i>
                                                         <span>Informacion</span>
                                                     </button>
@@ -121,6 +121,10 @@
                                                     </button>
                                                 </td>
                                             </tr>
+
+                                                <x-registro :empleado="$empleado" :correos="$empleado->emailRegistros" />
+                                                <x-sendEmail :empleado="$empleado" />
+                                                <x-deletePopUp :empleado="$empleado" />
                                          @endforeach
                                         </tbody>
                                     </table>
@@ -138,13 +142,6 @@
                             </div>
                         </div>
                     </div>
-                    @foreach ($empleados as $empleado)
-                        @if ($empleados->isNotEmpty())
-                            <x-registro :empleado="$empleado" :correos="$correos" />
-                            <x-sendEmail :empleado="$empleado"  />
-                            <x-deletePopUp :empleado="$empleado" />
-                        @endif
-                    @endforeach
                     <div class="mt-3">
                         {{ $empleados->links() }}
                     </div>

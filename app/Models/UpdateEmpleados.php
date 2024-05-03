@@ -40,4 +40,9 @@ class UpdateEmpleados extends Model
     {
         return $this->hasMany(EmailRegistro::class, 'id_empleado');
     }
+
+    public function correos()
+    {
+        return $this->hasMany(EmailRegistro::class, 'id_empleado');
+    }
 }

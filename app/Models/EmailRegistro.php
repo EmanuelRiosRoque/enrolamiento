@@ -27,4 +27,11 @@ class EmailRegistro extends Model
     {
         return $this->belongsTo(UpdateEmpleados::class, 'id_empleado');
     }
+
+
+    public function empleado()
+    {
+        return $this->belongsTo(UpdateEmpleados::class, 'id_empleado');
+    }
 }
+

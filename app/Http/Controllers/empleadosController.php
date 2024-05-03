@@ -32,7 +32,7 @@ class empleadosController extends Controller
         ->orderByDesc('created_at')
         ->paginate(30);
 
-        $correos = EmailRegistro::all();
+        $correos = EmailRegistro::whereIn('id_empleado', $empleados->pluck('id'))->get();
 
         // dd($empleados);
         return view('empleados.show', [
