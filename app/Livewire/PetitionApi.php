@@ -33,7 +33,7 @@ class PetitionApi extends Component
             return;
         }
 
-        $response = Http::get('http://172.19.202.43/WebServices/META/api/Empleado', [
+        $response = Http::get('http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=', [
             'NumEmpleado' => $this->nEmpleado
         ]);
 
