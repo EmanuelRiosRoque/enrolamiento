@@ -33,27 +33,42 @@ class PetitionApi extends Component
             return;
         }
 
+        // Construye la URL con el número de empleado
+        $url = 'http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=' . $this->nEmpleado;
 
-        $curl_post_data = [
-            "NumEmpleado" => $this->nEmpleado
-        ];
+        // Inicializa el contexto de flujo de HTTP
+        $context = stream_context_create([
+            'http' => [
+                'method' => 'GET',
+                'header' => 'Content-type: application/json',
+                // Opcional: puedes configurar otros parámetros de solicitud aquí, como 'timeout', 'ignore_errors', etc.
+            ]
+        ]);
 
-        $n_empleado = $this->nEmpleado;
+        // Realiza la solicitud utilizando file_get_contents() con el contexto de flujo HTTP
+        $response = @file_get_contents($url, false, $context);
 
-		$url ="http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=".$n_empleado;
-        $data = json_encode($curl_post_data);
-        $ch=curl_init();
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_ENCODING, "");
-        curl_setopt($ch, CURLOPT_MAXREDIRS, 10);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-        $response = curl_exec($ch);
-        curl_close($ch);
-        dd($response);
+        // Verifica si la solicitud fue exitosa
+        if ($response !== false) {
+            // Decodifica el JSON de la respuesta
+            $responseData = json_decode($response, true);
+
+            if ($responseData !== null) {
+                $this->responseData = $responseData;
+                $this->hideLoader();
+                $this->error = null; // Resetea el mensaje de error en caso de éxito
+            } else {
+                // El JSON no se pudo decodificar correctamente
+                $this->responseData = [];
+                $this->hideLoader();
+                $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.';
+            }
+        } else {
+            // La solicitud falló
+            $this->responseData = [];
+            $this->hideLoader();
+            $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.';
+        }
     }
 
 
