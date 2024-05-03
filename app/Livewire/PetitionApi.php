@@ -60,6 +60,7 @@ class PetitionApi extends Component
         if ($http_status == 200) {
             $this->responseData = json_decode($response, true);
             $this->hideLoader();
+            dd($response);
             $this->error = null; // Resetea el mensaje de error en caso de éxito
         } else {
             $this->responseData = [];
