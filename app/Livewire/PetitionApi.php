@@ -14,43 +14,64 @@ class PetitionApi extends Component
     public $error = null; // Agrega una propiedad para almacenar el mensaje de error
 
     public function fetchData()
-    {
-        // dd(phpinfo());
+{
+    // Verifica si el número de empleado ya existe en la tabla update_empleado
+    $empleadoExistente = UpdateEmpleados::where('nuM_EMPL', $this->nEmpleado)->exists();
 
+    if ($empleadoExistente) {
+        $this->error = 'Este empleado ya fue dado de alta.';
+        return;
+    }
 
-        // Verifica si el número de empleado ya existe en la tabla update_empleado
-        $empleadoExistente = UpdateEmpleados::where('nuM_EMPL', $this->nEmpleado)->exists();
+    // Continúa con la lógica de la solicitud API solo si el empleado no existe en la base de datos local
+    $this->showLoader();
 
-        if ($empleadoExistente) {
-            $this->error = 'Este empleado ya fue dado de alta.';
-            return;
-        }
+    // Simula una solicitud de datos con un retraso de 3 segundos
+    sleep(3);
 
-        // Continúa con la lógica de la solicitud API solo si el empleado no existe en la base de datos local
-        $this->showLoader();
+    if (!$this->nEmpleado) {
+        return;
+    }
 
-        // Simula una solicitud de datos con un retraso de 3 segundos
-        sleep(3);
+    // Construye la URL con el número de empleado
+    $url = 'http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=' . $this->nEmpleado;
 
-        if (!$this->nEmpleado) {
-            return;
-        }
+    // Inicializa una sesión cURL
+    $ch = curl_init();
 
-        $response = Http::get('http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=', [
-            'NumEmpleado' => $this->nEmpleado
-        ]);
+    // Configura las opciones de cURL
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60); // Aumenta el tiempo de espera a 60 segundos
 
+    // Realiza la solicitud cURL
+    $response = curl_exec($ch);
 
-        if ($response->ok()) {
-            $this->responseData = $response->json();
+    // Cierra la sesión cURL
+    curl_close($ch);
+
+    // Verifica si la solicitud fue exitosa
+    if ($response !== false) {
+        // Decodifica el JSON de la respuesta
+        $responseData = json_decode($response, true);
+
+        if ($responseData !== null) {
+            $this->responseData = $responseData;
             $this->hideLoader();
             $this->error = null; // Resetea el mensaje de error en caso de éxito
         } else {
+            // El JSON no se pudo decodificar correctamente
             $this->responseData = [];
             $this->hideLoader();
-            $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
+            $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.';
         }
+    } else {
+        // La solicitud falló
+        $this->responseData = [];
+        $this->hideLoader();
+        $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.';
     }
+}
 
 
     public function showLoader()
