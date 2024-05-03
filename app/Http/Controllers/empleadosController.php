@@ -49,11 +49,11 @@ class empleadosController extends Controller
      {
          try {
              // Obtener la imagen de la firma desde la solicitud
-             $firmaBase64 = $request->input('firma');
+            //  $firmaBase64 = $request->input('firma');
 
-             // Guardar la imagen de la firma en una ubicación temporal
-             $firmaPath = public_path('temp/firma.png');
-             file_put_contents($firmaPath, base64_decode($firmaBase64));
+            //  // Guardar la imagen de la firma en una ubicación temporal
+            //  $firmaPath = public_path('temp/firma.png');
+            //  file_put_contents($firmaPath, base64_decode($firmaBase64));
 
              // Definir la ruta de la biblioteca mPDF
              Settings::setPdfRendererPath(base_path('vendor/mpdf/mpdf'));
@@ -80,7 +80,7 @@ class empleadosController extends Controller
              // Asigna los demás valores según las variables en tu documento de Word
 
              // Insertar la imagen de la firma en el documento
-             $template->setImageValue('FIRMA', $firmaPath);
+            //  $template->setImageValue('FIRMA', $firmaPath);
 
              // Guardar el documento modificado en una carpeta temporal dentro de public
              $documentoGenerado = public_path('temp/documentoGenerado.docx');

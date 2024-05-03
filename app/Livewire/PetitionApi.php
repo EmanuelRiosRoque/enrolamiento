@@ -54,7 +54,7 @@ class PetitionApi extends Component
         if ($response !== false) {
             // Decodifica el JSON de la respuesta
             $responseData = json_decode($response, true);
-            dd($response);
+            // dd($response);
             if ($responseData !== null) {
                 $this->responseData = $responseData;
                 $this->hideLoader();
