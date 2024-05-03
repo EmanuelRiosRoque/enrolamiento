@@ -15,60 +15,40 @@ class PetitionApi extends Component
 
     public function fetchData()
     {
-        // Verifica si el número de empleado ya existe en la tabla update_empleado
-        $empleadoExistente = UpdateEmpleados::where('nuM_EMPL', $this->nEmpleado)->exists();
+        phpinfo();
 
-        if ($empleadoExistente) {
-            $this->error = 'Este empleado ya fue dado de alta.';
-            return;
-        }
+        // // Verifica si el número de empleado ya existe en la tabla update_empleado
+        // $empleadoExistente = UpdateEmpleados::where('nuM_EMPL', $this->nEmpleado)->exists();
 
-        // Continúa con la lógica de la solicitud API solo si el empleado no existe en la base de datos local
-        $this->showLoader();
+        // if ($empleadoExistente) {
+        //     $this->error = 'Este empleado ya fue dado de alta.';
+        //     return;
+        // }
 
-        // Simula una solicitud de datos con un retraso de 3 segundos
-        sleep(3);
+        // // Continúa con la lógica de la solicitud API solo si el empleado no existe en la base de datos local
+        // $this->showLoader();
 
-        if (!$this->nEmpleado) {
-            return;
-        }
+        // // Simula una solicitud de datos con un retraso de 3 segundos
+        // sleep(3);
 
-        // Construye la URL con el número de empleado
-        $url = 'http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=' . $this->nEmpleado;
+        // if (!$this->nEmpleado) {
+        //     return;
+        // }
 
-        // Inicializa el contexto de flujo de HTTP
-        $context = stream_context_create([
-            'http' => [
-                'method' => 'GET',
-                'header' => 'Content-type: application/json',
-                // Opcional: puedes configurar otros parámetros de solicitud aquí, como 'timeout', 'ignore_errors', etc.
-            ]
-        ]);
+        // $response = Http::get('http://172.19.202.43/WebServices/META/api/Empleado?NumEmpleado=', [
+        //     'NumEmpleado' => $this->nEmpleado
+        // ]);
 
-        // Realiza la solicitud utilizando file_get_contents() con el contexto de flujo HTTP
-        $response = @file_get_contents($url, false, $context);
 
-        // Verifica si la solicitud fue exitosa
-        if ($response !== false) {
-            // Decodifica el JSON de la respuesta
-            $responseData = json_decode($response, true);
-
-            if ($responseData !== null) {
-                $this->responseData = $responseData;
-                $this->hideLoader();
-                $this->error = null; // Resetea el mensaje de error en caso de éxito
-            } else {
-                // El JSON no se pudo decodificar correctamente
-                $this->responseData = [];
-                $this->hideLoader();
-                $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.';
-            }
-        } else {
-            // La solicitud falló
-            $this->responseData = [];
-            $this->hideLoader();
-            $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.';
-        }
+        // if ($response->ok()) {
+        //     $this->responseData = $response->json();
+        //     $this->hideLoader();
+        //     $this->error = null; // Resetea el mensaje de error en caso de éxito
+        // } else {
+        //     $this->responseData = [];
+        //     $this->hideLoader();
+        //     $this->error = 'Error al obtener datos. Por favor, inténtelo de nuevo más tarde.'; // Establece el mensaje de error
+        // }
     }
 
 
