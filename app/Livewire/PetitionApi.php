@@ -15,6 +15,7 @@ class PetitionApi extends Component
 
     public function fetchData()
     {
+        dd("Hola");
         phpinfo();
 
         // // Verifica si el número de empleado ya existe en la tabla update_empleado
