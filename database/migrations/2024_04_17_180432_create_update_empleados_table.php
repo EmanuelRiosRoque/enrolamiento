@@ -28,6 +28,8 @@ return new class extends Migration
             $table->string('descripcioN_AREA_TRABAJO')->nullable();
             $table->string('nivel')->nullable();
             $table->string('plaza')->nullable();
+            $table->string('n_tarjeta')->nullable();
+            $table->string('horario')->nullable();
             $table->foreignId('fk_usrCreated')->nullable()->constrained('users')->onDelete('set null');
             $table->timestamps();
         });

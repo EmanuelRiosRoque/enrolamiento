@@ -47,6 +47,9 @@ class empleadosController extends Controller
 
      public function downloadDocumento(Request $request, $numeroEmpleado)
      {
+
+
+
          try {
              // Obtener la imagen de la firma desde la solicitud
             //  $firmaBase64 = $request->input('firma');
@@ -81,6 +84,7 @@ class empleadosController extends Controller
              $template->setValue('CARGO', $empleado->descripcioN_PUESTO);
              $template->setValue('INMUEBLE', $empleado->areA_ADSCRIPCION);
              $template->setValue('TARJETA', $empleado->n_tarjeta);
+             $template->setValue('HORARIO', $empleado->horario);
              // Asigna los demás valores según las variables en tu documento de Word
 
              // Insertar la imagen de la firma en el documento
@@ -274,7 +278,10 @@ class empleadosController extends Controller
                     return back()->withSuccess('Documento enviado correctamente.');
                 } catch (\Exception $e) {
                     // Maneja cualquier excepción que pueda ocurrir durante la solicitud a la API
-                    dd('Error al enviar el documento: posible problema con API ' . $e->getMessage());
+                    //$e->getMessage()
+
+                    session()->flash('error', 'Al enviar el documento: Posible problema con el envío. No te preocupes, el documento ha sido almacenado para su reenvío futuro.');
+                    return back();
                 }
             } else {
                 // Archivo no válido

@@ -27,6 +27,7 @@ class UpdateEmpleados extends Model
         'plaza',
         'fk_usrCreated',
         'n_tarjeta',
+        'horario',
     ];
 
 
