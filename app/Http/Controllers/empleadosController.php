@@ -244,6 +244,8 @@ class empleadosController extends Controller
                 try {
 
                     $rutaDestino = public_path('pdf/' . $nombreDocumento . '.pdf');
+
+
                     $resultado = copy($documento->getRealPath(), $rutaDestino);
                     // Copia el contenido del archivo temporal al destino
                     // Lee el contenido del archivo y codifícalo en base64

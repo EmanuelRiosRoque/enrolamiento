@@ -1,47 +1,31 @@
-document
-    .getElementById("enviar-btn")
-    .addEventListener("click", function (event) {
-        const email = document.getElementById("email").value.trim();
-        const documentoInput = document.getElementById("dropzone-file");
-        const documento = documentoInput.files[0];
-        var emailInput = document.getElementById("email");
-        var alertaGmail = document.getElementById("alerta-gmail");
+document.addEventListener('DOMContentLoaded', function() {
+    const modals = document.querySelectorAll('[id^="authentication-modal-"]');
 
-        if (!email || !documento) {
+    modals.forEach(function(modal) {
+        const enviarBtn = modal.querySelector('.enviar-btn');
+        const emailInput = modal.querySelector('input[name="email"]');
+        const documentoInput = modal.querySelector('input[name="file"]');
+        const alertaBouth = modal.querySelector('.alert');
+        const alertaGmail = modal.querySelector('#alerta-gmail');
+
+        enviarBtn.addEventListener('click', function(event) {
             event.preventDefault();
-            document.getElementById("alerta-bouth").classList.remove("hidden");
-        } else {
-            document.getElementById("alerta-bouth").classList.add("hidden");
-        }
 
-        var correo = emailInput.value;
+            const email = emailInput.value.trim();
+            const documento = documentoInput.files[0];
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook|yahoo)\.(com|es|mx|gob|edu|org)$/;
 
-        // Expresión regular para validar el formato del correo electrónico
-        var regex =
-            /^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook|yahoo)\.(com|mx|es|edu|org)$/;
-
-        // Verificar si el correo electrónico coincide con la expresión regular
-        if (!regex.test(correo)) {
-            // Si no coincide, mostrar el mensaje de alerta
-            event.preventDefault();
-            alertaGmail.classList.remove("hidden");
-        } else {
-            // Si coincide, ocultar el mensaje de alerta
-            alertaGmail.classList.add("hidden");
-        }
+            if (!email || !documento) {
+                alertaBouth.classList.remove('hidden');
+                alertaGmail.classList.add('hidden');
+            } else if (!emailRegex.test(email)) {
+                alertaGmail.classList.remove('hidden');
+                alertaBouth.classList.add('hidden');
+            } else {
+                alertaBouth.classList.add('hidden');
+                alertaGmail.classList.add('hidden');
+                modal.querySelector('form').submit();
+            }
+        });
     });
-
-
-    setTimeout(function() {
-        var errorAlert = document.getElementById('error-alert');
-        if (errorAlert) {
-            errorAlert.classList.add('hidden');
-        }
-    }, 7000);
-
-    setTimeout(function() {
-        var successAlert = document.getElementById('success-alert');
-        if (successAlert) {
-            errorAlert.classList.add('hidden');
-        }
-    }, 5000);
+});
