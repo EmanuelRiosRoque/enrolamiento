@@ -130,12 +130,12 @@
                                                         <span>Enviar correo</span>
                                                     </button>
                                                 </td>
-                                                <td class="px-6 py-4">
+                                                {{-- <td class="px-6 py-4">
                                                     <button data-modal-target="popup-modal-{{$empleado->nuM_EMPL}}" data-modal-toggle="popup-modal-{{$empleado->nuM_EMPL}}" class="inline-flex items-center px-4 py-2 font-bold text-red-900 bg-red-500 rounded cursor-pointer hover:bg-red-600" type="button">
                                                         <i class="mr-1 fa-solid fa-eraser"></i>
                                                         <span>Eliminar</span>
                                                     </button>
-                                                </td>
+                                                </td> --}}
                                             </tr>
 
                                                 <x-registro :empleado="$empleado" :correos="$empleado->emailRegistros" />
