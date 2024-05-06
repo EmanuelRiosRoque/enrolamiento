@@ -98,7 +98,7 @@ class petitionController extends Controller
             'plaza' => $request->plaza,
             'fk_usrCreated' => $userId,
             'n_tarjeta' => $request->numeroT,
-            // 'horario' => $request->numeroT,
+            'horario' => $request->horario,
         ]);
 
 
