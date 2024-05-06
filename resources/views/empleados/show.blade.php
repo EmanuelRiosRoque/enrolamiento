@@ -94,6 +94,8 @@
                                         </thead>
                                         <tbody>
                                           @foreach ($empleados as $empleado)
+                                          @if (auth()->user()->id == 1 || $empleado->fk_usrCreated == auth()->user()->id)
+
                                             <tr id="empleado_{{$empleado->nuM_EMPL}}" class="bg-white hover:bg-gray-50 ">
                                                 <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
                                                     {{$empleado->nuM_EMPL}}
@@ -229,6 +231,7 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endif
                                          @endforeach
                                         </tbody>
                                     </table>
