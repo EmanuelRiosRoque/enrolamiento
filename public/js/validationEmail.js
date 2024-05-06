@@ -6,24 +6,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const emailInput = modal.querySelector('input[name="email"]');
         const documentoInput = modal.querySelector('input[name="file"]');
         const alertaBouth = modal.querySelector('.alert');
-        const alertaGmail = modal.querySelector('#alerta-gmail');
 
         enviarBtn.addEventListener('click', function(event) {
             event.preventDefault();
 
             const email = emailInput.value.trim();
             const documento = documentoInput.files[0];
-            const emailRegex = /^[a-zA-Z0-9._%+-]+@(gmail|hotmail|outlook|yahoo)\.(com|es|mx|gob|edu|org)$/;
 
             if (!email || !documento) {
                 alertaBouth.classList.remove('hidden');
-                alertaGmail.classList.add('hidden');
-            } else if (!emailRegex.test(email)) {
-                alertaGmail.classList.remove('hidden');
-                alertaBouth.classList.add('hidden');
             } else {
                 alertaBouth.classList.add('hidden');
-                alertaGmail.classList.add('hidden');
                 modal.querySelector('form').submit();
             }
         });
