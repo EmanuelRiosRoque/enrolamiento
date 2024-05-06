@@ -87,9 +87,9 @@
                                                 <th scope="col" class="px-6 py-3">
                                                     Enviar Correo
                                                 </th>
-                                                <th scope="col" class="px-6 py-3">
+                                                {{-- <th scope="col" class="px-6 py-3">
                                                     Accion
-                                                </th>
+                                                </th> --}}
                                             </tr>
                                         </thead>
                                         <tbody>
