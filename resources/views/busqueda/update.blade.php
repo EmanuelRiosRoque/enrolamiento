@@ -122,16 +122,6 @@
                                     @foreach($inmuebles as $inmueble)
                                         @if ($inmueble->id_locacion == '0LC-0000')
                                             <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
-                                        @elseif ($inmueble->id_locacion == '0LC-0001')
-                                            <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
-                                        @elseif ($inmueble->id_locacion == '0LC-0002')
-                                            <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
-                                        @elseif ($inmueble->id_locacion == '0LC-0003')
-                                            <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
-                                        @elseif ($inmueble->id_locacion == '0LC-00PB')
-                                            <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
-                                        @elseif ($inmueble->id_locacion == '0LC-00ST')
-                                            <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
                                         @endif
                                     @endforeach
                                 </select>
