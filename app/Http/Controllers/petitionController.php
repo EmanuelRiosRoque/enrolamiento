@@ -9,6 +9,7 @@ use App\Models\AreasInmuebles;
 use App\Models\UpdateEmpleados;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Validator;
 
 class petitionController extends Controller
 {
@@ -76,7 +77,44 @@ class petitionController extends Controller
      */
     public function update(Request $request, string $id)
     {
+        // dd($request->all());
         // Busca un registro existente con el ID proporcionado
+        $validator = Validator::make($request->all(), [
+            'nombres' => 'required|string|max:255',
+            'apellidop' => 'required|string|max:255',
+            'apellidom' => 'required|string|max:255',
+            'rfc' => 'required|string|max:255',
+            'curp' => 'required|string|max:255',
+            'puesto' => 'required|string|max:255',
+            'ubicacioN_AREA_TRABAJO' => 'required|string|max:255',
+            'nivel' => 'required|string|max:255',
+            'plaza' => 'required|string|max:255',
+            'numeroT' => 'required|string|max:255',
+            'horario' => 'required|string|max:255',
+            'areA_ADSCRIPCION' => 'required', // Validar que no esté vacío o nulo
+            'descripcioN_AREA_ADSCRIPCION' => 'required', // Validar que no esté vacío o nulo
+        ], [
+            'nombres.required' => 'El campo nombres es obligatorio.',
+            'apellidop.required' => 'El campo apellido paterno es obligatorio.',
+            'apellidom.required' => 'El campo apellido materno es obligatorio.',
+            'rfc.required' => 'El campo RFC es obligatorio.',
+            'curp.required' => 'El campo CURP es obligatorio.',
+            'puesto.required' => 'El campo puesto es obligatorio.',
+            'ubicacioN_AREA_TRABAJO.required' => 'El campo ubicación área de trabajo es obligatorio.',
+            'nivel.required' => 'El campo nivel es obligatorio.',
+            'plaza.required' => 'El campo plaza es obligatorio.',
+            'numeroT.required' => 'El campo número de tarjeta es obligatorio.',
+            'horario.required' => 'El campo horario es obligatorio.',
+            'areA_ADSCRIPCION.required' => 'El campo área es obligatorio.',
+            'descripcioN_AREA_ADSCRIPCION.required' => 'El campo área de adscripción es obligatorio.',
+        ]);
+
+        // Si la validación falla, redirige de nuevo al formulario con los errores
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+
         $empleado = UpdateEmpleados::firstOrNew(['nuM_EMPL' => $id]);
 
         $userId = Auth::id();

@@ -4,7 +4,7 @@
             {{ __('Modificar empleado') }}
         </h2>
     </x-slot>
-
+    {{-- {{dd($data)}} --}}
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="overflow-hidden bg-white shadow-xl sm:rounded-lg">
@@ -14,9 +14,27 @@
                         id="enviar-btn"><i class="text-white fa-solid fa-backward-step"></i> Regresar</a>
 
                     <div class="p-6">
+
                         <form method="POST"
                         action="{{ route('update.update', ['id' => $data['nuM_EMPL']]) }}"
                         class="max-w-md mx-auto">
+                        @if ($errors->any())
+                            <div class="mb-2 alert alert-danger">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <div class="flex items-center p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50" role="alert">
+                                        <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                                        </svg>
+                                        <span class="sr-only">Info</span>
+                                        <div>
+                                            <span class="font-medium">Verifica!</span> {{$error}}
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
                             @csrf
                             <div class="grid md:grid-cols-3 md:gap-6">
                                 <div class="relative z-0 w-full mb-5 group">
@@ -92,27 +110,27 @@
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-5 group">
-                                    <input type="text" name="areA_ADSCRIPCION" id="floating_area"
-                                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer"
-                                        placeholder=" " required disabled />
-                                    <label for="floating_area"
-                                        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Area</label>
+                                    <input type="text" name="areA_ADSCRIPCION" id="floating_area" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required disabled value="{{ $data['areA_ADSCRIPCION'] }}" />
+                                    <label for="floating_area" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Area</label>
                                 </div>
                                 <div class="relative z-0 w-full mb-5 group">
                                     <select name="descripcioN_AREA_ADSCRIPCION" id="floating_areaAdscrito"
-                                        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer"
-                                        required>
-                                        <option value="" disabled selected>Inmueble</option>
-                                        @foreach($inmuebles as $inmueble)
-                                        <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}
+                                    class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" required>
+
+                                    <option value="" disabled>Inmueble</option>
+                                    <option selected value="{{ $data['areA_ADSCRIPCION'] }}">{{$data['descripcioN_AREA_ADSCRIPCION']}}</option>
+                                    @foreach($inmuebles as $inmueble)
+                                        <option value="{{ $inmueble->id_locacion }}">
+                                            {{ $inmueble->desc_locacion }}
                                         </option>
-                                        @endforeach
-                                    </select>
+                                    @endforeach
+                                </select>
                                     <label for="floating_areaAdscrito"
                                         class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Area
                                         adscrito</label>
                                 </div>
                                 <input type="hidden" id="hidden_areaAdscrito" name="hidden_areaAdscrito">
+                                {{-- <input type="hidden" id="hidden_areaAdscrito" name="hidden_areaAdscritoDefault "> --}}
 
                                 {{-- Ruta para agregar nuevo inmueble --}}
                                 {{-- <div>
@@ -173,12 +191,19 @@
     <script src="{{asset('js/aregloAsociativo.js')}}"></script>
 
     <script>
-        document.getElementById('floating_areaAdscrito').addEventListener('change', function() {
-        var selectedIndex = this.selectedIndex;
-        var selectedOption = this.options[selectedIndex];
-        var selectedText = selectedOption.textContent;
-        document.getElementById('hidden_areaAdscrito').value = selectedText;
-    });
+      function updateHiddenInput() {
+        var select = document.getElementById('floating_areaAdscrito');
+        var selectedIndex = select.selectedIndex;
+        var selectedOption = select.options[selectedIndex];
+        var selectedText = selectedOption ? selectedOption.textContent : '';
+        document.getElementById('hidden_areaAdscrito').value = selectedText || "{{ $data['descripcioN_AREA_ADSCRIPCION'] }}";
+    }
+
+    // Agregar evento de cambio al select
+    document.getElementById('floating_areaAdscrito').addEventListener('change', updateHiddenInput);
+
+    // Llamar a la función updateHiddenInput para establecer el valor inicial del input oculto
+    updateHiddenInput();
     </script>
     @endpush
 </x-app-layout>
