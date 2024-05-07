@@ -91,8 +91,8 @@ class petitionController extends Controller
             'plaza' => 'required|string|max:255',
             'numeroT' => 'required|string|max:255',
             'horario' => 'required|string|max:255',
-            'areA_ADSCRIPCION' => 'required', // Validar que no esté vacío o nulo
             'descripcioN_AREA_ADSCRIPCION' => 'required', // Validar que no esté vacío o nulo
+            'hidden_areaAdscrito' => 'required', // Validar que no esté vacío o nulo
         ], [
             'nombres.required' => 'El campo nombres es obligatorio.',
             'apellidop.required' => 'El campo apellido paterno es obligatorio.',
@@ -105,8 +105,8 @@ class petitionController extends Controller
             'plaza.required' => 'El campo plaza es obligatorio.',
             'numeroT.required' => 'El campo número de tarjeta es obligatorio.',
             'horario.required' => 'El campo horario es obligatorio.',
-            'areA_ADSCRIPCION.required' => 'El campo área es obligatorio.',
-            'descripcioN_AREA_ADSCRIPCION.required' => 'El campo área de adscripción es obligatorio.',
+            'descripcioN_AREA_ADSCRIPCION.required' => 'El campo área es obligatorio.',
+            'hidden_areaAdscrito.required' => 'El campo área de adscripción es obligatorio.',
         ]);
 
         // Si la validación falla, redirige de nuevo al formulario con los errores
