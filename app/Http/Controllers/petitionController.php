@@ -82,7 +82,6 @@ class petitionController extends Controller
         $validator = Validator::make($request->all(), [
             'nombres' => 'required|string|max:255',
             'apellidop' => 'required|string|max:255',
-            'apellidom' => 'required|string|max:255',
             'rfc' => 'required|string|max:255',
             'curp' => 'required|string|max:255',
             'puesto' => 'required|string|max:255',
@@ -96,7 +95,6 @@ class petitionController extends Controller
         ], [
             'nombres.required' => 'El campo nombres es obligatorio.',
             'apellidop.required' => 'El campo apellido paterno es obligatorio.',
-            'apellidom.required' => 'El campo apellido materno es obligatorio.',
             'rfc.required' => 'El campo RFC es obligatorio.',
             'curp.required' => 'El campo CURP es obligatorio.',
             'puesto.required' => 'El campo puesto es obligatorio.',
