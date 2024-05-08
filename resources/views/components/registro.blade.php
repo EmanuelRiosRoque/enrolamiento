@@ -80,7 +80,7 @@
                             @foreach ($correos as $correo)
                                 @if ($correo->id_empleado == $empleado->id)
                                     <li class="mb-4 text-base font-normal text-amber-800">
-                                        <a href="{{ asset('pdf/' . $correo->nombreDocumento . '.pdf') }}" target="_blank">{{ $correo->nombreDocumento }}</a>
+                                        <a href="{{ $correo->nombreDocumento }}" target="_blank">Consultar Documento</a>
                                         <br>
                                         <span class="text-sm font-bold text-amber-400">{{ $correo->created_at->isoFormat('LL') }}</span>
                                     </li>
