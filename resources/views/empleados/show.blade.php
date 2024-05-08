@@ -198,7 +198,17 @@
                                                                                     <p class="text-xs text-gray-500">PDF (*SOLO PDF*)</p>
                                                                                 </div>
                                                                                 <input id="dropzone-file-{{ $empleado->nuM_EMPL }}" type="file" name="file" class="hidden" accept=".pdf"/>
+                                                                                <input id="numEmpleadoArch" type="hidden" class="hidden" value="{{$empleado->nuM_EMPL}}">
                                                                             </label>
+                                                                        </div>
+                                                                        <div class="flex items-center hidden p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 alert" role="alert" id="alerta-archivo">
+                                                                            <svg class="flex-shrink-0 inline w-4 h-4 me-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                                                                <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+                                                                            </svg>
+                                                                            <span class="sr-only">Info</span>
+                                                                            <div>
+                                                                                <span class="font-medium">¡Verifica!</span> El archivo no coincide con el numero de empleado.
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                     <button type="submit" class="mt-3 w-full cursor-pointer text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center enviar-btn" id="env-correo">Enviar Formato</button>

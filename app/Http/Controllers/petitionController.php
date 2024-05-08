@@ -112,6 +112,10 @@ class petitionController extends Controller
             return redirect()->back()->withErrors($validator)->withInput();
         }
 
+        if ($request->hidden_areaAdscrito == "Inmueble") {
+            return redirect()->back()->with('error', 'Ocurrio un error verifique los datos');
+        }
+
 
         $empleado = UpdateEmpleados::firstOrNew(['nuM_EMPL' => $id]);
 
