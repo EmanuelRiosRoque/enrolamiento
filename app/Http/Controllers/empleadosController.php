@@ -225,12 +225,7 @@ class empleadosController extends Controller
         $idEmpleado = $user->id;
         $nombreDocumento = str_replace('.pdf', '', $request->file('file')->getClientOriginalName());
 
-        EmailRegistro::create([
-            'id_empleado' => $idEmpleado,
-            'emailResptor' => $request->input('email'), // Debes obtener el email del receptor del request
-            'fk_userEmisor' => auth()->id(), // Obtener el ID del usuario emisor autenticado
-            'nombreDocumento' => $nombreDocumento,
-        ]);
+
 
         $links = [];
 
@@ -243,10 +238,10 @@ class empleadosController extends Controller
             if ($documento->getClientOriginalExtension() === 'pdf' && $documento->getSize() < 5000000) {
                 try {
 
-                    $rutaDestino = public_path('pdf/' . $nombreDocumento . '.pdf');
+                    // $rutaDestino = public_path('pdf/' . $nombreDocumento . '.pdf');
 
 
-                    $resultado = copy($documento->getRealPath(), $rutaDestino);
+                    // $resultado = copy($documento->getRealPath(), $rutaDestino);
                     // Copia el contenido del archivo temporal al destino
                     // Lee el contenido del archivo y codifícalo en base64
                     $base64 = base64_encode(file_get_contents($documento->getRealPath()));
@@ -270,6 +265,13 @@ class empleadosController extends Controller
 
                     // Obtén el enlace generado por la API
                     $apiLink = $responseData['url']; // Ajusta esto según la estructura de la respuesta de tu API
+
+                    EmailRegistro::create([
+                        'id_empleado' => $idEmpleado,
+                        'emailResptor' => $request->input('email'), // Debes obtener el email del receptor del request
+                        'fk_userEmisor' => auth()->id(), // Obtener el ID del usuario emisor autenticado
+                        'nombreDocumento' => $apiLink,
+                    ]);
 
                     // Pasa el enlace como dato a la notificación
                     Notification::route('mail', $request->email)
