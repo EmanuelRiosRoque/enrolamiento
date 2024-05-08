@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class AreasInmuebles extends Model
 {
     use HasFactory;
+
     public $fillable = [
         'id_locacion',
         'desc_locacion'

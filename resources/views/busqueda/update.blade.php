@@ -120,12 +120,8 @@
                                     <option value="" selected>Inmueble</option>
                                     <!-- <option selected value="{{ $data['areA_ADSCRIPCION'] }}">{{$data['descripcioN_AREA_ADSCRIPCION']}}</option> -->
                                     @foreach($inmuebles as $inmueble)
-                                        @if ($inmueble->id_locacion == '0FT-0000')
+                                        @if ($inmueble->estatus != 2)
                                             <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
-                                            @elseif ($inmueble->id_locacion == '0NA-0000')
-                                                <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
-                                            @elseif ($inmueble->id_locacion == '6PJ-00SINC')
-                                                <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
                                         @endif
                                     @endforeach
                                 </select>

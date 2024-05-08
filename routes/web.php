@@ -41,6 +41,9 @@ Route::post('/editEmpleado/{id}', [PetitionController::class, 'update'])->name('
 
 Route::get('/Inmueble', [InmueblesController::class, 'index'])->name('inmuebles.index');
 Route::post('/Inmueble/create', [InmueblesController::class, 'create'])->name('inmuebles.create');
+Route::get('/Inmueble/lista', [InmueblesController::class, 'list'])->name('inmuebles.list');
+Route::get('/Inmueble/activar/{id_locacion}', [InmueblesController::class, 'active'])->name('inmuebles.active');
+Route::get('/Inmueble/resetear', [InmueblesController::class, 'reset'])->name('inmuebles.reset');
 
 
 
