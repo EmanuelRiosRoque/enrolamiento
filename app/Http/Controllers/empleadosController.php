@@ -103,14 +103,23 @@ class empleadosController extends Controller
                  $section->setMarginBottom(0);
              }
 
-             // Guardar el PDF con los márgenes configurados
              $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
-             $pdfFilename = $empleado->nuM_EMPL . '.pdf';
-             $pdfPath = public_path('temp/' . $pdfFilename);
-             $pdfWriter->save($pdfPath);
+            $pdfFilename = $empleado->nuM_EMPL . '.pdf';
+            $pdfPath = public_path('temp/' . $pdfFilename);
+            $pdfWriter->save($pdfPath);
 
-             // Descargar el PDF generado
-             return response()->download($pdfPath, $empleado->nuM_EMPL . '.pdf');
+            // Descargar el PDF generado
+            $response = response()->download($pdfPath, $empleado->nuM_EMPL . '.pdf');
+
+            // Retornar la respuesta de descarga antes de eliminar el archivo
+            return $response;
+
+            // Eliminar el archivo después de la descarga
+            unlink($pdfPath);
+            // unlink($documentoGenerado);
+
+
+             return $response;
             } catch (\Exception $e) {
              // Si ocurre un error, regresar a la página anterior con el código de error
              dd($e->getMessage());
