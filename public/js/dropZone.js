@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Mostrar el nombre del archivo
             mostrarNombreArchivo(file);
-            validarArchivo(file)
+            // validarArchivo(file)
             // Asignar el archivo al input type file
             const files = new DataTransfer();
             files.items.add(file);
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Mostrar el nombre del archivo
             mostrarNombreArchivo(file);
-            validarArchivo(file)
+            // validarArchivo(file)
 
         });
     });
