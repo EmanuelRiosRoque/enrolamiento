@@ -134,6 +134,7 @@
                                         adscrito</label>
                                 </div>
                                 <input type="hidden" id="hidden_areaAdscrito" name="hidden_areaAdscrito">
+                                <input type="hidden" id="estatus" name="estatus"value="{{$data['estatus']}}">
                                 {{-- <input type="hidden" id="hidden_areaAdscrito" name="hidden_areaAdscritoDefault "> --}}
 
                                 {{-- Ruta para agregar nuevo inmueble --}}

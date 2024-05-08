@@ -121,7 +121,7 @@ class petitionController extends Controller
             'nombres' => $request->nombres,
             'apellidop' => $request->apellidop,
             'apellidom' => $request->apellidom,
-            'estatus' => "Activo",
+            'estatus' => $request->estatus,
             'rfc' => $request->rfc,
             'curp' => $request->curp,
             'areA_ADSCRIPCION' => $request->hidden_areaAdscrito,
