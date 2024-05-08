@@ -110,18 +110,22 @@
                             </div>
                             <div class="grid md:grid-cols-2 md:gap-6">
                                 <div class="relative z-0 w-full mb-5 group">
-                                    <input type="text" name="areA_ADSCRIPCION" id="floating_area" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required disabled value="{{ $data['areA_ADSCRIPCION'] }}" />
+                                    <input type="text" name="areA_ADSCRIPCION" id="floating_area" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" placeholder=" " required disabled />
                                     <label for="floating_area" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-teal-600 peer-focus:dark:text-teal-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Area</label>
                                 </div>
                                 <div class="relative z-0 w-full mb-5 group">
                                     <select name="descripcioN_AREA_ADSCRIPCION" id="floating_areaAdscrito"
                                     class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-black dark:border-gray-600 dark:focus:border-teal-500 focus:outline-none focus:ring-0 focus:border-teal-600 peer" required>
 
-                                    <option value="" disabled>Inmueble</option>
-                                    <option selected value="{{ $data['areA_ADSCRIPCION'] }}">{{$data['descripcioN_AREA_ADSCRIPCION']}}</option>
+                                    <option value="" selected>Inmueble</option>
+                                    <!-- <option selected value="{{ $data['areA_ADSCRIPCION'] }}">{{$data['descripcioN_AREA_ADSCRIPCION']}}</option> -->
                                     @foreach($inmuebles as $inmueble)
-                                        @if ($inmueble->id_locacion == '0LC-0000')
+                                        @if ($inmueble->id_locacion == '0FT-0000')
                                             <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
+                                            @elseif ($inmueble->id_locacion == '0NA-0000')
+                                                <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
+                                            @elseif ($inmueble->id_locacion == '6PJ-00SINC')
+                                                <option value="{{ $inmueble->id_locacion }}">{{ $inmueble->desc_locacion }}</option>
                                         @endif
                                     @endforeach
                                 </select>
