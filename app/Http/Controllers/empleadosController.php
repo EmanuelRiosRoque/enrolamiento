@@ -103,23 +103,18 @@ class empleadosController extends Controller
                  $section->setMarginBottom(0);
              }
 
-             $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
+            $pdfWriter = IOFactory::createWriter($phpWord, 'PDF');
             $pdfFilename = $empleado->nuM_EMPL . '.pdf';
             $pdfPath = public_path('temp/' . $pdfFilename);
             $pdfWriter->save($pdfPath);
+            unlink($documentoGenerado);
+
 
             // Descargar el PDF generado
             $response = response()->download($pdfPath, $empleado->nuM_EMPL . '.pdf');
 
             // Retornar la respuesta de descarga antes de eliminar el archivo
-            return $response;
-
-            // Eliminar el archivo después de la descarga
-            unlink($pdfPath);
-            // unlink($documentoGenerado);
-
-
-             return $response;
+            return $response->deleteFileAfterSend(true);
             } catch (\Exception $e) {
              // Si ocurre un error, regresar a la página anterior con el código de error
              dd($e->getMessage());
