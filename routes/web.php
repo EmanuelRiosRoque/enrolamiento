@@ -8,6 +8,7 @@ use App\Http\Controllers\petitionController;
 use App\Http\Controllers\empleadosController;
 use App\Http\Controllers\InmueblesController;
 use App\Http\Controllers\Info;
+use App\Http\Controllers\ModificacioneController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,12 @@ Route::post('/Inmueble/create', [InmueblesController::class, 'create'])->name('i
 Route::get('/Inmueble/lista', [InmueblesController::class, 'list'])->name('inmuebles.list');
 Route::get('/Inmueble/activar/{id_locacion}', [InmueblesController::class, 'active'])->name('inmuebles.active');
 Route::get('/Inmueble/resetear', [InmueblesController::class, 'reset'])->name('inmuebles.reset');
+
+
+Route::get('/Modificaciones', [ModificacioneController::class, 'index'])->name('modifica.index');
+Route::get('/Modificaciones/busqueda', [ModificacioneController::class, 'search'])->name('modifica.search');
+Route::put('/Modificaciones/update/{nEmpleado}', [ModificacioneController::class, 'update'])->name('modifica.update');
+
 
 
 

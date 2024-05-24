@@ -18,6 +18,8 @@
                         <form method="POST"
                         action="{{ route('update.update', ['id' => $data['nuM_EMPL']]) }}"
                         class="max-w-md mx-auto">
+
+
                         @if ($errors->any())
                             <div class="mb-2 alert alert-danger">
                                 <ul>
