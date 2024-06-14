@@ -57,6 +57,6 @@ class ModificacioneController extends Controller
         $empleado->save();
 
         // Redirigir con un mensaje de éxito
-        return redirect()->route('modifica.index')->with('success', 'Empleado actualizado correctamente.');
+        return redirect()->route('empleados.index')->with('success', 'Empleado actualizado correctamente.');
     }
 }
